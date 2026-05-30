@@ -1,0 +1,1061 @@
+{
+  "map_name": "TLU UAV Campus Map V3 - A1 T45 Library K1 C1 B4 Dorm4 Back Gate",
+  "width": 1400,
+  "height": 900,
+  "background": "yard",
+  "note": "Approximate hand-designed 2D semantic map based on user-provided top-down campus screenshots. Coordinates are simulation coordinates, not GPS/survey coordinates. The front-gate circular courtyard before A1 is intentionally excluded.",
+  "layers": [
+    {
+      "name": "roads",
+      "items": [
+        {
+          "id": "road_main_horizontal",
+          "label": "Main Internal Road",
+          "class": "road",
+          "points": [
+            [
+              250,
+              370
+            ],
+            [
+              1365,
+              370
+            ],
+            [
+              1365,
+              445
+            ],
+            [
+              250,
+              445
+            ]
+          ],
+          "height_level": 0,
+          "risk_weight": 0.0
+        },
+        {
+          "id": "road_t45_front",
+          "label": "Road in front of T45 - Library",
+          "class": "road",
+          "points": [
+            [
+              350,
+              285
+            ],
+            [
+              1035,
+              285
+            ],
+            [
+              1035,
+              360
+            ],
+            [
+              350,
+              360
+            ]
+          ],
+          "height_level": 0,
+          "risk_weight": 0.0
+        },
+        {
+          "id": "road_a1_side",
+          "label": "A1 Side Road",
+          "class": "road",
+          "points": [
+            [
+              250,
+              130
+            ],
+            [
+              335,
+              130
+            ],
+            [
+              335,
+              720
+            ],
+            [
+              250,
+              720
+            ]
+          ],
+          "height_level": 0,
+          "risk_weight": 0.0
+        },
+        {
+          "id": "road_courtyard_bottom",
+          "label": "Courtyard Bottom Road",
+          "class": "road",
+          "points": [
+            [
+              345,
+              655
+            ],
+            [
+              850,
+              655
+            ],
+            [
+              850,
+              725
+            ],
+            [
+              345,
+              725
+            ]
+          ],
+          "height_level": 0,
+          "risk_weight": 0.0
+        },
+        {
+          "id": "road_courtyard_right",
+          "label": "Courtyard Right Road",
+          "class": "road",
+          "points": [
+            [
+              800,
+              430
+            ],
+            [
+              875,
+              430
+            ],
+            [
+              875,
+              725
+            ],
+            [
+              800,
+              725
+            ]
+          ],
+          "height_level": 0,
+          "risk_weight": 0.0
+        },
+        {
+          "id": "road_courtyard_left",
+          "label": "Courtyard Left Road",
+          "class": "road",
+          "points": [
+            [
+              335,
+              430
+            ],
+            [
+              410,
+              430
+            ],
+            [
+              410,
+              725
+            ],
+            [
+              335,
+              725
+            ]
+          ],
+          "height_level": 0,
+          "risk_weight": 0.0
+        },
+        {
+          "id": "road_library_k1_c1_triangle",
+          "label": "Library - K1 - C1 Triangle Path",
+          "class": "road",
+          "points": [
+            [
+              735,
+              335
+            ],
+            [
+              1010,
+              330
+            ],
+            [
+              1110,
+              420
+            ],
+            [
+              1045,
+              545
+            ],
+            [
+              800,
+              560
+            ],
+            [
+              700,
+              470
+            ]
+          ],
+          "height_level": 0,
+          "risk_weight": 0.0
+        },
+        {
+          "id": "road_back_gate",
+          "label": "Back Gate Road",
+          "class": "road",
+          "points": [
+            [
+              1020,
+              445
+            ],
+            [
+              1400,
+              445
+            ],
+            [
+              1400,
+              535
+            ],
+            [
+              1020,
+              535
+            ]
+          ],
+          "height_level": 0,
+          "risk_weight": 0.0
+        },
+        {
+          "id": "road_to_dorm4",
+          "label": "Road to Dormitory 4",
+          "class": "road",
+          "points": [
+            [
+              980,
+              535
+            ],
+            [
+              1130,
+              535
+            ],
+            [
+              1210,
+              710
+            ],
+            [
+              1125,
+              755
+            ],
+            [
+              990,
+              610
+            ]
+          ],
+          "height_level": 0,
+          "risk_weight": 0.0
+        },
+        {
+          "id": "road_b4_boundary",
+          "label": "Road near B4 Wall",
+          "class": "road",
+          "points": [
+            [
+              255,
+              680
+            ],
+            [
+              360,
+              680
+            ],
+            [
+              360,
+              890
+            ],
+            [
+              255,
+              890
+            ]
+          ],
+          "height_level": 0,
+          "risk_weight": 0.0
+        }
+      ]
+    },
+    {
+      "name": "yards",
+      "items": [
+        {
+          "id": "yard_main_courtyard",
+          "label": "Sân trước T45",
+          "class": "yard",
+          "points": [
+            [
+              420,
+              450
+            ],
+            [
+              790,
+              450
+            ],
+            [
+              790,
+              645
+            ],
+            [
+              420,
+              645
+            ]
+          ],
+          "height_level": 0,
+          "risk_weight": 0.08,
+          "render_color": "#e8cfc1"
+        },
+        {
+          "id": "yard_triangle_open_space",
+          "label": "Open Space: Library - K1 - C1",
+          "class": "yard",
+          "points": [
+            [
+              720,
+              355
+            ],
+            [
+              970,
+              355
+            ],
+            [
+              1040,
+              430
+            ],
+            [
+              995,
+              520
+            ],
+            [
+              810,
+              535
+            ],
+            [
+              735,
+              460
+            ]
+          ],
+          "height_level": 0,
+          "risk_weight": 0.1,
+          "render_color": "#ead9c6"
+        },
+        {
+          "id": "yard_dorm4_front",
+          "label": "Dormitory 4 Front Yard",
+          "class": "yard",
+          "points": [
+            [
+              1020,
+              610
+            ],
+            [
+              1250,
+              610
+            ],
+            [
+              1250,
+              705
+            ],
+            [
+              1020,
+              705
+            ]
+          ],
+          "height_level": 0,
+          "risk_weight": 0.12,
+          "render_color": "#ead9c6"
+        },
+        {
+          "id": "yard_west_inside",
+          "label": "A1 Inner Yard",
+          "class": "yard",
+          "points": [
+            [
+              335,
+              185
+            ],
+            [
+              420,
+              185
+            ],
+            [
+              420,
+              680
+            ],
+            [
+              335,
+              680
+            ]
+          ],
+          "height_level": 0,
+          "risk_weight": 0.1
+        }
+      ]
+    },
+    {
+      "name": "buildings",
+      "items": [
+        {
+          "id": "building_a1",
+          "label": "A1",
+          "class": "building",
+          "points": [
+            [
+              95,
+              125
+            ],
+            [
+              245,
+              125
+            ],
+            [
+              245,
+              720
+            ],
+            [
+              95,
+              720
+            ]
+          ],
+          "height_level": 1,
+          "risk_weight": 1.0,
+          "estimated_height_m": 16.0,
+          "subclass": "academic_building",
+          "render_color": "#c87868"
+        },
+        {
+          "id": "building_t45",
+          "label": "Hội trường T45",
+          "class": "building",
+          "points": [
+            [
+              430,
+              115
+            ],
+            [
+              755,
+              115
+            ],
+            [
+              755,
+              255
+            ],
+            [
+              430,
+              255
+            ]
+          ],
+          "height_level": 1,
+          "risk_weight": 1.0,
+          "estimated_height_m": 14.0,
+          "subclass": "hall_light_green_roof",
+          "render_color": "#b7d6c0"
+        },
+        {
+          "id": "building_library",
+          "label": "Thư viện",
+          "class": "building",
+          "points": [
+            [
+              760,
+              120
+            ],
+            [
+              980,
+              120
+            ],
+            [
+              980,
+              255
+            ],
+            [
+              760,
+              255
+            ]
+          ],
+          "height_level": 1,
+          "risk_weight": 1.0,
+          "estimated_height_m": 14.0,
+          "subclass": "library_low_light_green_roof",
+          "render_color": "#c4dfcf"
+        },
+        {
+          "id": "building_k1_north",
+          "label": "K1 - Block 1",
+          "class": "building",
+          "points": [
+            [
+              1085,
+              150
+            ],
+            [
+              1325,
+              150
+            ],
+            [
+              1325,
+              285
+            ],
+            [
+              1085,
+              285
+            ]
+          ],
+          "height_level": 1,
+          "risk_weight": 1.0,
+          "estimated_height_m": 30.0,
+          "subclass": "k1_cluster",
+          "render_color": "#d7c8ba"
+        },
+        {
+          "id": "building_k1_south",
+          "label": "K1 - Block 2",
+          "class": "building",
+          "points": [
+            [
+              1085,
+              315
+            ],
+            [
+              1325,
+              315
+            ],
+            [
+              1325,
+              440
+            ],
+            [
+              1085,
+              440
+            ]
+          ],
+          "height_level": 1,
+          "risk_weight": 1.0,
+          "estimated_height_m": 30.0,
+          "subclass": "k1_cluster",
+          "render_color": "#d7c8ba"
+        },
+        {
+          "id": "building_c1",
+          "label": "C1",
+          "class": "building",
+          "points": [
+            [
+              805,
+              490
+            ],
+            [
+              1015,
+              490
+            ],
+            [
+              1015,
+              605
+            ],
+            [
+              805,
+              605
+            ]
+          ],
+          "height_level": 1,
+          "risk_weight": 1.0,
+          "estimated_height_m": 12.0,
+          "subclass": "academic_building",
+          "render_color": "#c87868"
+        },
+        {
+          "id": "building_b4_lab",
+          "label": "B4 - Khu thí nghiệm",
+          "class": "building",
+          "points": [
+            [
+              80,
+              735
+            ],
+            [
+              255,
+              735
+            ],
+            [
+              255,
+              885
+            ],
+            [
+              80,
+              885
+            ]
+          ],
+          "height_level": 1,
+          "risk_weight": 1.0,
+          "estimated_height_m": 10.0,
+          "subclass": "lab_inactive",
+          "render_color": "#9d7a6b"
+        },
+        {
+          "id": "building_dorm4_first",
+          "label": "KTX số 4",
+          "class": "building",
+          "points": [
+            [
+              1045,
+              735
+            ],
+            [
+              1310,
+              735
+            ],
+            [
+              1310,
+              835
+            ],
+            [
+              1045,
+              835
+            ]
+          ],
+          "height_level": 1,
+          "risk_weight": 1.0,
+          "estimated_height_m": 18.0,
+          "subclass": "dormitory_first_segment",
+          "render_color": "#b94f45"
+        }
+      ]
+    },
+    {
+      "name": "walls_no_fly",
+      "items": [
+        {
+          "id": "wall_b4_separator",
+          "label": "Tường ngăn B4",
+          "class": "no_fly",
+          "points": [
+            [
+              265,
+              690
+            ],
+            [
+              305,
+              690
+            ],
+            [
+              305,
+              900
+            ],
+            [
+              265,
+              900
+            ]
+          ],
+          "height_level": 1,
+          "risk_weight": 1.0,
+          "estimated_height_m": 4.0,
+          "subclass": "separator_wall",
+          "render_color": "#9e4c4c"
+        },
+        {
+          "id": "no_fly_inside_b4",
+          "label": "No-fly: B4 Area",
+          "class": "no_fly",
+          "points": [
+            [
+              40,
+              705
+            ],
+            [
+              260,
+              705
+            ],
+            [
+              260,
+              900
+            ],
+            [
+              40,
+              900
+            ]
+          ],
+          "height_level": 1,
+          "risk_weight": 1.0,
+          "estimated_height_m": 10.0,
+          "subclass": "inactive_lab_area",
+          "render_color": "#d96b6b"
+        }
+      ]
+    },
+    {
+      "name": "trees_high",
+      "items": [
+        {
+          "id": "tree_high_a1_west",
+          "label": "Cây cao cạnh A1",
+          "class": "green",
+          "points": [
+            [
+              0,
+              120
+            ],
+            [
+              90,
+              120
+            ],
+            [
+              90,
+              710
+            ],
+            [
+              0,
+              710
+            ]
+          ],
+          "height_level": 1,
+          "risk_weight": 0.95,
+          "estimated_height_m": 8.0,
+          "subclass": "tree_high"
+        },
+        {
+          "id": "tree_high_between_a1_t45",
+          "label": "Cây cao giữa A1 - T45",
+          "class": "green",
+          "points": [
+            [
+              330,
+              190
+            ],
+            [
+              425,
+              190
+            ],
+            [
+              425,
+              355
+            ],
+            [
+              330,
+              355
+            ]
+          ],
+          "height_level": 1,
+          "risk_weight": 0.9,
+          "estimated_height_m": 8.0,
+          "subclass": "tree_high"
+        },
+        {
+          "id": "tree_high_k1_dorm_side",
+          "label": "Cây cao cạnh K1/KTX",
+          "class": "green",
+          "points": [
+            [
+              1250,
+              540
+            ],
+            [
+              1395,
+              540
+            ],
+            [
+              1395,
+              760
+            ],
+            [
+              1250,
+              760
+            ]
+          ],
+          "height_level": 1,
+          "risk_weight": 0.9,
+          "estimated_height_m": 8.0,
+          "subclass": "tree_high"
+        },
+        {
+          "id": "tree_high_b4_front",
+          "label": "Cây cao trước B4",
+          "class": "green",
+          "points": [
+            [
+              305,
+              705
+            ],
+            [
+              520,
+              705
+            ],
+            [
+              520,
+              890
+            ],
+            [
+              305,
+              890
+            ]
+          ],
+          "height_level": 1,
+          "risk_weight": 0.9,
+          "estimated_height_m": 8.0,
+          "subclass": "tree_high"
+        }
+      ]
+    },
+    {
+      "name": "trees_medium",
+      "items": [
+        {
+          "id": "tree_medium_front_t45_left",
+          "label": "Cây trung bình trước T45 - trái",
+          "class": "green",
+          "points": [
+            [
+              405,
+              360
+            ],
+            [
+              510,
+              360
+            ],
+            [
+              510,
+              450
+            ],
+            [
+              405,
+              450
+            ]
+          ],
+          "height_level": 2,
+          "risk_weight": 0.55,
+          "estimated_height_m": 3.0,
+          "subclass": "tree_medium"
+        },
+        {
+          "id": "tree_medium_front_t45_right",
+          "label": "Cây trung bình trước T45 - phải",
+          "class": "green",
+          "points": [
+            [
+              760,
+              360
+            ],
+            [
+              875,
+              360
+            ],
+            [
+              875,
+              460
+            ],
+            [
+              760,
+              460
+            ]
+          ],
+          "height_level": 2,
+          "risk_weight": 0.55,
+          "estimated_height_m": 3.0,
+          "subclass": "tree_medium"
+        },
+        {
+          "id": "tree_medium_library_c1",
+          "label": "Cây giữa Thư viện và C1",
+          "class": "green",
+          "points": [
+            [
+              690,
+              280
+            ],
+            [
+              790,
+              280
+            ],
+            [
+              790,
+              470
+            ],
+            [
+              690,
+              470
+            ]
+          ],
+          "height_level": 2,
+          "risk_weight": 0.6,
+          "estimated_height_m": 3.0,
+          "subclass": "tree_medium"
+        },
+        {
+          "id": "tree_medium_k1_c1",
+          "label": "Cây giữa K1 và C1",
+          "class": "green",
+          "points": [
+            [
+              1015,
+              410
+            ],
+            [
+              1105,
+              410
+            ],
+            [
+              1105,
+              555
+            ],
+            [
+              1015,
+              555
+            ]
+          ],
+          "height_level": 2,
+          "risk_weight": 0.6,
+          "estimated_height_m": 3.0,
+          "subclass": "tree_medium"
+        }
+      ]
+    },
+    {
+      "name": "trees_low_gardens",
+      "items": [
+        {
+          "id": "garden_low_1",
+          "label": "Bồn cây thấp 1",
+          "class": "green",
+          "points": [
+            [
+              465,
+              480
+            ],
+            [
+              530,
+              480
+            ],
+            [
+              530,
+              535
+            ],
+            [
+              465,
+              535
+            ]
+          ],
+          "height_level": 3,
+          "risk_weight": 0.12,
+          "estimated_height_m": 1.2,
+          "subclass": "tree_low",
+          "render_color": "#77b255"
+        },
+        {
+          "id": "garden_low_2",
+          "label": "Bồn cây thấp 2",
+          "class": "green",
+          "points": [
+            [
+              675,
+              480
+            ],
+            [
+              740,
+              480
+            ],
+            [
+              740,
+              535
+            ],
+            [
+              675,
+              535
+            ]
+          ],
+          "height_level": 3,
+          "risk_weight": 0.12,
+          "estimated_height_m": 1.2,
+          "subclass": "tree_low",
+          "render_color": "#77b255"
+        },
+        {
+          "id": "garden_low_3",
+          "label": "Bồn cây thấp 3",
+          "class": "green",
+          "points": [
+            [
+              465,
+              585
+            ],
+            [
+              530,
+              585
+            ],
+            [
+              530,
+              640
+            ],
+            [
+              465,
+              640
+            ]
+          ],
+          "height_level": 3,
+          "risk_weight": 0.12,
+          "estimated_height_m": 1.2,
+          "subclass": "tree_low",
+          "render_color": "#77b255"
+        },
+        {
+          "id": "garden_low_4",
+          "label": "Bồn cây thấp 4",
+          "class": "green",
+          "points": [
+            [
+              675,
+              585
+            ],
+            [
+              740,
+              585
+            ],
+            [
+              740,
+              640
+            ],
+            [
+              675,
+              640
+            ]
+          ],
+          "height_level": 3,
+          "risk_weight": 0.12,
+          "estimated_height_m": 1.2,
+          "subclass": "tree_low",
+          "render_color": "#77b255"
+        },
+        {
+          "id": "garden_low_center",
+          "label": "Bồn cây thấp giữa sân",
+          "class": "green",
+          "points": [
+            [
+              570,
+              525
+            ],
+            [
+              620,
+              505
+            ],
+            [
+              670,
+              525
+            ],
+            [
+              670,
+              600
+            ],
+            [
+              620,
+              620
+            ],
+            [
+              570,
+              600
+            ]
+          ],
+          "height_level": 3,
+          "risk_weight": 0.12,
+          "estimated_height_m": 1.2,
+          "subclass": "tree_low",
+          "render_color": "#77b255"
+        }
+      ]
+    }
+  ]
+}

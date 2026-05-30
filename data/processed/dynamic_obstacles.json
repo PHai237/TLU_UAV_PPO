@@ -1,0 +1,136 @@
+{
+  "vehicles": [
+    {
+      "id": "car_a1_01",
+      "type": "car",
+      "x": 315,
+      "y": 205,
+      "w": 16,
+      "h": 30,
+      "angle": 0,
+      "height_m": 1.6,
+      "height_level": 3,
+      "dynamic": false
+    },
+    {
+      "id": "car_a1_02",
+      "type": "car",
+      "x": 315,
+      "y": 270,
+      "w": 16,
+      "h": 30,
+      "angle": 0,
+      "height_m": 1.6,
+      "height_level": 3,
+      "dynamic": false
+    },
+    {
+      "id": "car_a1_03",
+      "type": "car",
+      "x": 315,
+      "y": 610,
+      "w": 16,
+      "h": 30,
+      "angle": 0,
+      "height_m": 1.6,
+      "height_level": 3,
+      "dynamic": false
+    },
+    {
+      "id": "car_front_01",
+      "type": "car",
+      "x": 485,
+      "y": 700,
+      "w": 32,
+      "h": 16,
+      "angle": 0,
+      "height_m": 1.6,
+      "height_level": 3,
+      "dynamic": false
+    },
+    {
+      "id": "car_front_02",
+      "type": "car",
+      "x": 565,
+      "y": 700,
+      "w": 32,
+      "h": 16,
+      "angle": 0,
+      "height_m": 1.6,
+      "height_level": 3,
+      "dynamic": false
+    },
+    {
+      "id": "car_front_03",
+      "type": "car",
+      "x": 645,
+      "y": 700,
+      "w": 32,
+      "h": 16,
+      "angle": 0,
+      "height_m": 1.6,
+      "height_level": 3,
+      "dynamic": false
+    },
+    {
+      "id": "car_t45_01",
+      "type": "car",
+      "x": 835,
+      "y": 500,
+      "w": 16,
+      "h": 32,
+      "angle": 0,
+      "height_m": 1.6,
+      "height_level": 3,
+      "dynamic": false
+    },
+    {
+      "id": "car_t45_02",
+      "type": "car",
+      "x": 835,
+      "y": 590,
+      "w": 16,
+      "h": 32,
+      "angle": 0,
+      "height_m": 1.6,
+      "height_level": 3,
+      "dynamic": false
+    },
+    {
+      "id": "car_gate_01",
+      "type": "car",
+      "x": 1160,
+      "y": 490,
+      "w": 32,
+      "h": 16,
+      "angle": 0,
+      "height_m": 1.6,
+      "height_level": 3,
+      "dynamic": false
+    },
+    {
+      "id": "car_gate_02",
+      "type": "car",
+      "x": 1240,
+      "y": 490,
+      "w": 32,
+      "h": 16,
+      "angle": 0,
+      "height_m": 1.6,
+      "height_level": 3,
+      "dynamic": false
+    },
+    {
+      "id": "van_dorm_01",
+      "type": "van",
+      "x": 1120,
+      "y": 690,
+      "w": 42,
+      "h": 20,
+      "angle": 0,
+      "height_m": 2.5,
+      "height_level": 2,
+      "dynamic": false
+    }
+  ]
+}

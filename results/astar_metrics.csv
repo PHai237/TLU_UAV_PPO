@@ -1,0 +1,6 @@
+route,start_id,goal_id,start_x,start_y,goal_x,goal_y,path_found,path_points,path_length_px,straight_distance_px,efficiency_ratio,status
+pickup_back_gate_to_drop_t45,pickup_back_gate,drop_t45,1350,490,590,270,True,96,850.41,791.2,1.0748,pass
+pickup_back_gate_to_drop_library,pickup_back_gate,drop_library,1350,490,870,275,True,61,569.53,525.95,1.0829,pass
+pickup_back_gate_to_drop_k1,pickup_back_gate,drop_k1,1350,490,1055,365,True,40,360.12,320.39,1.124,pass
+pickup_back_gate_to_drop_c1,pickup_back_gate,drop_c1,1350,490,900,475,True,57,456.68,450.25,1.0143,pass
+pickup_back_gate_to_drop_dorm4,pickup_back_gate,drop_dorm4,1350,490,1030,720,True,41,416.34,394.08,1.0565,pass

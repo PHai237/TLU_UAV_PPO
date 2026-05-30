@@ -1,0 +1,30 @@
+{
+  "type_codes": {
+    "road": 0,
+    "building": 1,
+    "green": 2,
+    "yard": 3,
+    "no_fly": 4,
+    "pickup": 5,
+    "dropoff": 6
+  },
+  "height_level_meaning": {
+    "0": "normal / clear area",
+    "1": "high obstacle, cannot fly over at around 3m",
+    "2": "medium/risky obstacle, avoid if possible",
+    "3": "low obstacle, flyable at around 3m"
+  },
+  "risk_map_meaning": "0.0 = safe, 1.0 = highly risky",
+  "map_size": {
+    "width": 1400,
+    "height": 900
+  },
+  "main_pickup": "pickup_back_gate",
+  "dropoffs": [
+    "drop_t45",
+    "drop_library",
+    "drop_k1",
+    "drop_c1",
+    "drop_dorm4"
+  ]
+}

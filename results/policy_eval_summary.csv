@@ -1,0 +1,11 @@
+policy,goal_id,episodes,success_count,collision_count,timeout_count,success_rate,collision_rate,timeout_rate,avg_steps,avg_reward,avg_final_distance_px
+random,drop_t45,20,0,20,0,0.0,1.0,0.0,99.95,-115.76,798.79
+random,drop_library,20,0,20,0,0.0,1.0,0.0,99.95,-115.79,533.68
+random,drop_k1,20,0,20,0,0.0,1.0,0.0,99.95,-116.16,330.0
+random,drop_c1,20,0,20,0,0.0,1.0,0.0,99.95,-116.23,460.22
+random,drop_dorm4,20,0,20,0,0.0,1.0,0.0,99.95,-116.71,406.44
+greedy,drop_t45,5,5,0,0,1.0,0.0,0.0,105.0,239.67,10.35
+greedy,drop_library,5,5,0,0,1.0,0.0,0.0,70.0,148.43,8.79
+greedy,drop_k1,5,5,0,0,1.0,0.0,0.0,44.0,117.4,11.41
+greedy,drop_c1,5,5,0,0,1.0,0.0,0.0,56.0,176.92,7.64
+greedy,drop_dorm4,5,5,0,0,1.0,0.0,0.0,51.0,153.91,6.83
