@@ -76,7 +76,7 @@ def main():
 
     model.learn(total_timesteps=total_timesteps)
 
-    output_path = MODELS_DIR / "ppo_tlu_uav_preliminary"
+    output_path = MODELS_DIR / "ppo_tlu_uav_100k_radius30"
     model.save(output_path)
 
     print("=" * 70)

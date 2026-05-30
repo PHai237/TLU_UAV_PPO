@@ -1,6 +1,6 @@
 [
   {
-    "policy": "ppo_preliminary",
+    "policy": "ppo_100k_radius30",
     "goal_id": "drop_t45",
     "episodes": 10,
     "success_count": 10,
@@ -14,7 +14,7 @@
     "avg_final_distance_px": 25.54
   },
   {
-    "policy": "ppo_preliminary",
+    "policy": "ppo_100k_radius30",
     "goal_id": "drop_library",
     "episodes": 10,
     "success_count": 10,
@@ -28,7 +28,7 @@
     "avg_final_distance_px": 26.95
   },
   {
-    "policy": "ppo_preliminary",
+    "policy": "ppo_100k_radius30",
     "goal_id": "drop_k1",
     "episodes": 10,
     "success_count": 10,
@@ -42,7 +42,7 @@
     "avg_final_distance_px": 27.03
   },
   {
-    "policy": "ppo_preliminary",
+    "policy": "ppo_100k_radius30",
     "goal_id": "drop_c1",
     "episodes": 10,
     "success_count": 0,
@@ -56,7 +56,7 @@
     "avg_final_distance_px": 91.45
   },
   {
-    "policy": "ppo_preliminary",
+    "policy": "ppo_100k_radius30",
     "goal_id": "drop_dorm4",
     "episodes": 10,
     "success_count": 10,

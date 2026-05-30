@@ -16,11 +16,13 @@ sys.path.insert(0, str(PROJECT_ROOT))
 from envs.tlu_uav_env import TluUavEnv  # noqa: E402
 
 
-MODEL_PATH = PROJECT_ROOT / "models" / "ppo_tlu_uav_preliminary.zip"
+MODEL_PATH = PROJECT_ROOT / "models" / "ppo_tlu_uav_100k_radius30.zip"
+
 RESULTS_DIR = PROJECT_ROOT / "results"
 TRAJECTORY_DIR = RESULTS_DIR / "trajectories"
-SUMMARY_CSV = RESULTS_DIR / "ppo_eval_summary.csv"
-SUMMARY_JSON = RESULTS_DIR / "ppo_eval_summary.json"
+
+SUMMARY_CSV = RESULTS_DIR / "ppo_eval_summary_100k_radius30.csv"
+SUMMARY_JSON = RESULTS_DIR / "ppo_eval_summary_100k_radius30.json"
 
 TYPE_COLORS = [
     "#b8bdc2",
@@ -147,7 +149,7 @@ def summarize(goal_id: str, results):
     timeout_count = sum(1 for r in results if r["timeout"])
 
     return {
-        "policy": "ppo_preliminary",
+        "policy": "ppo_100k_radius30",
         "goal_id": goal_id,
         "episodes": total,
         "success_count": success_count,
@@ -173,7 +175,7 @@ def main():
 
     all_summaries = []
 
-    print("PPO PRELIMINARY EVALUATION")
+    print("PPO 100K RADIUS30 EVALUATION")
     print("=" * 70)
 
     for goal_id in GOAL_IDS:
