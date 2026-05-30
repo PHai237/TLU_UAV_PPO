@@ -1,0 +1,6 @@
+policy,goal_id,episodes,success_count,collision_count,timeout_count,success_rate,collision_rate,timeout_rate,avg_steps,avg_reward,avg_final_distance_px
+ppo_preliminary,drop_t45,10,0,0,10,0.0,0.0,1.0,500.0,25.96,236.41
+ppo_preliminary,drop_library,10,0,0,10,0.0,0.0,1.0,500.0,-6.99,135.9
+ppo_preliminary,drop_k1,10,0,0,10,0.0,0.0,1.0,500.0,-32.35,57.16
+ppo_preliminary,drop_c1,10,0,0,10,0.0,0.0,1.0,500.0,-7.97,65.08
+ppo_preliminary,drop_dorm4,10,10,0,0,1.0,0.0,0.0,50.0,164.77,26.71

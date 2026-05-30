@@ -79,9 +79,9 @@
     "success_rate": 1.0,
     "collision_rate": 0.0,
     "timeout_rate": 0.0,
-    "avg_steps": 105.0,
-    "avg_reward": 239.67,
-    "avg_final_distance_px": 10.35
+    "avg_steps": 103.0,
+    "avg_reward": 236.92,
+    "avg_final_distance_px": 25.09
   },
   {
     "policy": "greedy",
@@ -93,9 +93,9 @@
     "success_rate": 1.0,
     "collision_rate": 0.0,
     "timeout_rate": 0.0,
-    "avg_steps": 70.0,
-    "avg_reward": 148.43,
-    "avg_final_distance_px": 8.79
+    "avg_steps": 68.0,
+    "avg_reward": 145.73,
+    "avg_final_distance_px": 23.31
   },
   {
     "policy": "greedy",
@@ -107,9 +107,9 @@
     "success_rate": 1.0,
     "collision_rate": 0.0,
     "timeout_rate": 0.0,
-    "avg_steps": 44.0,
-    "avg_reward": 117.4,
-    "avg_final_distance_px": 11.41
+    "avg_steps": 42.0,
+    "avg_reward": 114.64,
+    "avg_final_distance_px": 26.19
   },
   {
     "policy": "greedy",
@@ -121,9 +121,9 @@
     "success_rate": 1.0,
     "collision_rate": 0.0,
     "timeout_rate": 0.0,
-    "avg_steps": 56.0,
-    "avg_reward": 176.92,
-    "avg_final_distance_px": 7.64
+    "avg_steps": 54.0,
+    "avg_reward": 174.05,
+    "avg_final_distance_px": 22.98
   },
   {
     "policy": "greedy",
@@ -135,8 +135,8 @@
     "success_rate": 1.0,
     "collision_rate": 0.0,
     "timeout_rate": 0.0,
-    "avg_steps": 51.0,
-    "avg_reward": 153.91,
-    "avg_final_distance_px": 6.83
+    "avg_steps": 48.0,
+    "avg_reward": 149.79,
+    "avg_final_distance_px": 28.95
   }
 ]

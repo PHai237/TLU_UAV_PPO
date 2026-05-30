@@ -67,7 +67,7 @@ def main():
         tensorboard_log=str(LOGS_DIR),
     )
 
-    total_timesteps = 50_000
+    total_timesteps = 100_000
 
     print("=" * 70)
     print("Training PPO on TLU UAV environment")

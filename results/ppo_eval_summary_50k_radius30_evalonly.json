@@ -3,43 +3,43 @@
     "policy": "ppo_preliminary",
     "goal_id": "drop_t45",
     "episodes": 10,
-    "success_count": 10,
+    "success_count": 0,
     "collision_count": 0,
-    "timeout_count": 0,
-    "success_rate": 1.0,
+    "timeout_count": 10,
+    "success_rate": 0.0,
     "collision_rate": 0.0,
-    "timeout_rate": 0.0,
-    "avg_steps": 103.0,
-    "avg_reward": 237.83,
-    "avg_final_distance_px": 25.54
+    "timeout_rate": 1.0,
+    "avg_steps": 500.0,
+    "avg_reward": 25.96,
+    "avg_final_distance_px": 236.41
   },
   {
     "policy": "ppo_preliminary",
     "goal_id": "drop_library",
     "episodes": 10,
-    "success_count": 10,
+    "success_count": 0,
     "collision_count": 0,
-    "timeout_count": 0,
-    "success_rate": 1.0,
+    "timeout_count": 10,
+    "success_rate": 0.0,
     "collision_rate": 0.0,
-    "timeout_rate": 0.0,
-    "avg_steps": 73.0,
-    "avg_reward": 187.5,
-    "avg_final_distance_px": 26.95
+    "timeout_rate": 1.0,
+    "avg_steps": 500.0,
+    "avg_reward": -6.99,
+    "avg_final_distance_px": 135.9
   },
   {
     "policy": "ppo_preliminary",
     "goal_id": "drop_k1",
     "episodes": 10,
-    "success_count": 10,
+    "success_count": 0,
     "collision_count": 0,
-    "timeout_count": 0,
-    "success_rate": 1.0,
+    "timeout_count": 10,
+    "success_rate": 0.0,
     "collision_rate": 0.0,
-    "timeout_rate": 0.0,
-    "avg_steps": 44.0,
-    "avg_reward": 147.27,
-    "avg_final_distance_px": 27.03
+    "timeout_rate": 1.0,
+    "avg_steps": 500.0,
+    "avg_reward": -32.35,
+    "avg_final_distance_px": 57.16
   },
   {
     "policy": "ppo_preliminary",
@@ -52,8 +52,8 @@
     "collision_rate": 0.0,
     "timeout_rate": 1.0,
     "avg_steps": 500.0,
-    "avg_reward": -13.24,
-    "avg_final_distance_px": 91.45
+    "avg_reward": -7.97,
+    "avg_final_distance_px": 65.08
   },
   {
     "policy": "ppo_preliminary",
@@ -65,8 +65,8 @@
     "success_rate": 1.0,
     "collision_rate": 0.0,
     "timeout_rate": 0.0,
-    "avg_steps": 54.0,
-    "avg_reward": 162.99,
-    "avg_final_distance_px": 29.91
+    "avg_steps": 50.0,
+    "avg_reward": 164.77,
+    "avg_final_distance_px": 26.71
   }
 ]

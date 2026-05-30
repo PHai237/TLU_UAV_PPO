@@ -78,7 +78,7 @@ class TluUavEnv(gym.Env if gym is not None else object):
         self,
         goal_id: str = "drop_t45",
         step_size: float = 8.0,
-        goal_radius: float = 14.0,
+        goal_radius: float = 30.0,
         max_steps: int = 500,
         ray_count: int = 8,
         ray_range: float = 120.0,
