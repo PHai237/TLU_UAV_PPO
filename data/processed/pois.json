@@ -12,7 +12,7 @@
       "id": "drop_t45",
       "label": "Drop - T45",
       "x": 590,
-      "y": 270
+      "y": 245
     },
     {
       "id": "drop_library",
@@ -29,8 +29,8 @@
     {
       "id": "drop_c1",
       "label": "Drop - C1",
-      "x": 900,
-      "y": 475
+      "x": 675,
+      "y": 450
     },
     {
       "id": "drop_dorm4",

@@ -86,6 +86,16 @@ def poly(points: list[list[float]]) -> list[list[float]]:
     return points
 
 
+def oval(cx: float, cy: float, rx: float, ry: float, n: int = 24) -> list[list[float]]:
+    return [
+        [
+            cx + rx * np.cos(2.0 * np.pi * i / n),
+            cy + ry * np.sin(2.0 * np.pi * i / n),
+        ]
+        for i in range(n)
+    ]
+
+
 def item(
     id_: str,
     label: str,
@@ -164,81 +174,69 @@ layers: list[dict[str, Any]] = [
                 "road_main_horizontal",
                 "Main Internal Road",
                 "road",
-                rect(250, 370, 1365, 445),
+                rect(245, 490, 1400, 535),
             ),
             # Road in front of T45 / library.
             item(
                 "road_t45_front",
                 "Road in front of T45 - Library",
                 "road",
-                rect(350, 285, 1035, 360),
+                rect(315, 250, 1040, 305),
             ),
             # Left vertical road along A1, but not including the front circular courtyard.
             item(
                 "road_a1_side",
                 "A1 Side Road",
                 "road",
-                rect(250, 130, 335, 720),
+                rect(245, 0, 315, 735),
             ),
             # Road around the main courtyard.
             item(
                 "road_courtyard_bottom",
                 "Courtyard Bottom Road",
                 "road",
-                rect(345, 655, 850, 725),
+                rect(315, 660, 1305, 720),
             ),
             item(
                 "road_courtyard_right",
                 "Courtyard Right Road",
                 "road",
-                rect(800, 430, 875, 725),
+                rect(635, 305, 690, 660),
             ),
             item(
                 "road_courtyard_left",
                 "Courtyard Left Road",
                 "road",
-                rect(335, 430, 410, 725),
+                rect(315, 305, 365, 660),
             ),
-            # Road between Library - K1 - C1 forming the triangle path.
+            # Road between C1 and K1. Keep this vertical like the reference plan;
+            # do not draw an artificial diagonal/triangle road through C1.
             item(
-                "road_library_k1_c1_triangle",
-                "Library - K1 - C1 Triangle Path",
+                "road_c1_k1_vertical",
+                "C1 - K1 Vertical Road",
                 "road",
-                poly([
-                    [735, 335],
-                    [1010, 330],
-                    [1110, 420],
-                    [1045, 545],
-                    [800, 560],
-                    [700, 470],
-                ]),
+                rect(1015, 250, 1070, 660),
             ),
             # Road to back gate on the right edge.
             item(
                 "road_back_gate",
                 "Back Gate Road",
                 "road",
-                rect(1020, 445, 1400, 535),
+                rect(1325, 60, 1370, 500),
             ),
             # Road down to dormitory 4.
             item(
                 "road_to_dorm4",
                 "Road to Dormitory 4",
                 "road",
-                poly([
-                    [980, 535],
-                    [1130, 535],
-                    [1210, 710],
-                    [1125, 755],
-                    [990, 610],
-                ]),
+                rect(1015, 490, 1070, 735),
             ),
             # Road along B4 separator wall.
             item(
                 "road_b4_boundary",
                 "Road near B4 Wall",
                 "road",
-                rect(255, 680, 360, 890),
+                rect(245, 700, 450, 755),
             ),
         ],
     },
@@ -249,7 +247,7 @@ layers: list[dict[str, Any]] = [
                 "yard_main_courtyard",
                 "Sân trước T45",
                 "yard",
-                rect(420, 450, 790, 645),
+                rect(365, 320, 635, 650),
                 risk_weight=0.08,
                 render_color=TYPE_COLORS["paving"],
             ),
@@ -257,14 +255,7 @@ layers: list[dict[str, Any]] = [
                 "yard_triangle_open_space",
                 "Open Space: Library - K1 - C1",
                 "yard",
-                poly([
-                    [720, 355],
-                    [970, 355],
-                    [1040, 430],
-                    [995, 520],
-                    [810, 535],
-                    [735, 460],
-                ]),
+                rect(690, 305, 1015, 430),
                 risk_weight=0.10,
                 render_color="#ead9c6",
             ),
@@ -272,7 +263,7 @@ layers: list[dict[str, Any]] = [
                 "yard_dorm4_front",
                 "Dormitory 4 Front Yard",
                 "yard",
-                rect(1020, 610, 1250, 705),
+                rect(1070, 580, 1305, 660),
                 risk_weight=0.12,
                 render_color="#ead9c6",
             ),
@@ -280,7 +271,7 @@ layers: list[dict[str, Any]] = [
                 "yard_west_inside",
                 "A1 Inner Yard",
                 "yard",
-                rect(335, 185, 420, 680),
+                rect(315, 130, 365, 250),
                 risk_weight=0.10,
             ),
         ],
@@ -292,7 +283,7 @@ layers: list[dict[str, Any]] = [
                 "building_a1",
                 "A1",
                 "building",
-                rect(95, 125, 245, 720),
+                rect(75, 0, 240, 685),
                 height_level=1,
                 estimated_height_m=16,
                 subclass="academic_building",
@@ -303,7 +294,7 @@ layers: list[dict[str, Any]] = [
                 "building_t45",
                 "Hội trường T45",
                 "building",
-                rect(430, 115, 755, 255),
+                rect(365, 50, 635, 220),
                 height_level=1,
                 estimated_height_m=14,
                 subclass="hall_light_green_roof",
@@ -314,7 +305,7 @@ layers: list[dict[str, Any]] = [
                 "building_library",
                 "Thư viện",
                 "building",
-                rect(760, 120, 980, 255),
+                rect(635, 50, 960, 235),
                 height_level=1,
                 estimated_height_m=14,
                 subclass="library_low_light_green_roof",
@@ -326,7 +317,7 @@ layers: list[dict[str, Any]] = [
                 "building_k1_north",
                 "K1 - Block 1",
                 "building",
-                rect(1085, 150, 1325, 285),
+                rect(1085, 80, 1325, 220),
                 height_level=1,
                 estimated_height_m=30,
                 subclass="k1_cluster",
@@ -334,10 +325,21 @@ layers: list[dict[str, Any]] = [
                 render_color="#d7c8ba",
             ),
             item(
+                "building_k1_tower",
+                "K1 - 11 Tang",
+                "building",
+                rect(1105, 235, 1180, 300),
+                height_level=1,
+                estimated_height_m=35,
+                subclass="k1_tower",
+                risk_weight=1.0,
+                render_color="#d7c8ba",
+            ),
+            item(
                 "building_k1_south",
                 "K1 - Block 2",
                 "building",
-                rect(1085, 315, 1325, 440),
+                rect(1085, 315, 1325, 430),
                 height_level=1,
                 estimated_height_m=30,
                 subclass="k1_cluster",
@@ -348,7 +350,18 @@ layers: list[dict[str, Any]] = [
                 "building_c1",
                 "C1",
                 "building",
-                rect(805, 490, 1015, 605),
+                rect(735, 350, 900, 475),
+                height_level=1,
+                estimated_height_m=12,
+                subclass="academic_building",
+                risk_weight=1.0,
+                render_color="#c87868",
+            ),
+            item(
+                "building_c1_wing",
+                "C1 Wing",
+                "building",
+                rect(700, 385, 770, 450),
                 height_level=1,
                 estimated_height_m=12,
                 subclass="academic_building",
@@ -359,7 +372,7 @@ layers: list[dict[str, Any]] = [
                 "building_b4_lab",
                 "B4 - Khu thí nghiệm",
                 "building",
-                rect(80, 735, 255, 885),
+                rect(95, 705, 235, 760),
                 height_level=1,
                 estimated_height_m=10,
                 subclass="lab_inactive",
@@ -370,7 +383,7 @@ layers: list[dict[str, Any]] = [
                 "building_dorm4_first",
                 "KTX số 4",
                 "building",
-                rect(1045, 735, 1310, 835),
+                rect(700, 730, 1225, 825),
                 height_level=1,
                 estimated_height_m=18,
                 subclass="dormitory_first_segment",
@@ -386,7 +399,7 @@ layers: list[dict[str, Any]] = [
                 "wall_b4_separator",
                 "Tường ngăn B4",
                 "no_fly",
-                rect(265, 690, 305, 900),
+                rect(245, 755, 275, 900),
                 height_level=1,
                 estimated_height_m=4,
                 subclass="separator_wall",
@@ -397,7 +410,7 @@ layers: list[dict[str, Any]] = [
                 "no_fly_inside_b4",
                 "No-fly: B4 Area",
                 "no_fly",
-                rect(40, 705, 260, 900),
+                rect(40, 760, 245, 900),
                 height_level=1,
                 estimated_height_m=10,
                 subclass="inactive_lab_area",
@@ -413,7 +426,7 @@ layers: list[dict[str, Any]] = [
                 "tree_high_a1_west",
                 "Cây cao cạnh A1",
                 "green",
-                rect(0, 120, 90, 710),
+                oval(35, 140, 45, 60),
                 height_level=1,
                 estimated_height_m=8,
                 subclass="tree_high",
@@ -423,7 +436,7 @@ layers: list[dict[str, Any]] = [
                 "tree_high_between_a1_t45",
                 "Cây cao giữa A1 - T45",
                 "green",
-                rect(330, 190, 425, 355),
+                oval(330, 245, 45, 45),
                 height_level=1,
                 estimated_height_m=8,
                 subclass="tree_high",
@@ -433,7 +446,7 @@ layers: list[dict[str, Any]] = [
                 "tree_high_k1_dorm_side",
                 "Cây cao cạnh K1/KTX",
                 "green",
-                rect(1250, 540, 1395, 760),
+                oval(1280, 590, 55, 70),
                 height_level=1,
                 estimated_height_m=8,
                 subclass="tree_high",
@@ -443,7 +456,7 @@ layers: list[dict[str, Any]] = [
                 "tree_high_b4_front",
                 "Cây cao trước B4",
                 "green",
-                rect(305, 705, 520, 890),
+                oval(390, 800, 80, 60),
                 height_level=1,
                 estimated_height_m=8,
                 subclass="tree_high",
@@ -458,7 +471,7 @@ layers: list[dict[str, Any]] = [
                 "tree_medium_front_t45_left",
                 "Cây trung bình trước T45 - trái",
                 "green",
-                rect(405, 360, 510, 450),
+                oval(435, 350, 45, 38),
                 height_level=2,
                 estimated_height_m=3,
                 subclass="tree_medium",
@@ -468,7 +481,7 @@ layers: list[dict[str, Any]] = [
                 "tree_medium_front_t45_right",
                 "Cây trung bình trước T45 - phải",
                 "green",
-                rect(760, 360, 875, 460),
+                oval(905, 305, 55, 45),
                 height_level=2,
                 estimated_height_m=3,
                 subclass="tree_medium",
@@ -478,7 +491,7 @@ layers: list[dict[str, Any]] = [
                 "tree_medium_library_c1",
                 "Cây giữa Thư viện và C1",
                 "green",
-                rect(690, 280, 790, 470),
+                oval(780, 305, 75, 50),
                 height_level=2,
                 estimated_height_m=3,
                 subclass="tree_medium",
@@ -488,7 +501,7 @@ layers: list[dict[str, Any]] = [
                 "tree_medium_k1_c1",
                 "Cây giữa K1 và C1",
                 "green",
-                rect(1015, 410, 1105, 555),
+                oval(930, 510, 55, 45),
                 height_level=2,
                 estimated_height_m=3,
                 subclass="tree_medium",
@@ -503,7 +516,7 @@ layers: list[dict[str, Any]] = [
                 "garden_low_1",
                 "Bồn cây thấp 1",
                 "green",
-                rect(465, 480, 530, 535),
+                rect(390, 350, 465, 405),
                 height_level=3,
                 estimated_height_m=1.2,
                 subclass="tree_low",
@@ -514,7 +527,7 @@ layers: list[dict[str, Any]] = [
                 "garden_low_2",
                 "Bồn cây thấp 2",
                 "green",
-                rect(675, 480, 740, 535),
+                rect(535, 350, 610, 405),
                 height_level=3,
                 estimated_height_m=1.2,
                 subclass="tree_low",
@@ -525,7 +538,7 @@ layers: list[dict[str, Any]] = [
                 "garden_low_3",
                 "Bồn cây thấp 3",
                 "green",
-                rect(465, 585, 530, 640),
+                rect(390, 535, 465, 590),
                 height_level=3,
                 estimated_height_m=1.2,
                 subclass="tree_low",
@@ -536,7 +549,7 @@ layers: list[dict[str, Any]] = [
                 "garden_low_4",
                 "Bồn cây thấp 4",
                 "green",
-                rect(675, 585, 740, 640),
+                rect(535, 535, 610, 590),
                 height_level=3,
                 estimated_height_m=1.2,
                 subclass="tree_low",
@@ -547,14 +560,7 @@ layers: list[dict[str, Any]] = [
                 "garden_low_center",
                 "Bồn cây thấp giữa sân",
                 "green",
-                poly([
-                    [570, 525],
-                    [620, 505],
-                    [670, 525],
-                    [670, 600],
-                    [620, 620],
-                    [570, 600],
-                ]),
+                oval(505, 465, 48, 28),
                 height_level=3,
                 estimated_height_m=1.2,
                 subclass="tree_low",
@@ -575,10 +581,10 @@ pois = {
         }
     ],
     "dropoff_points": [
-        {"id": "drop_t45", "label": "Drop - T45", "x": 590, "y": 270},
+        {"id": "drop_t45", "label": "Drop - T45", "x": 590, "y": 245},
         {"id": "drop_library", "label": "Drop - Thư viện", "x": 870, "y": 275},
         {"id": "drop_k1", "label": "Drop - K1", "x": 1055, "y": 365},
-        {"id": "drop_c1", "label": "Drop - C1", "x": 900, "y": 475},
+        {"id": "drop_c1", "label": "Drop - C1", "x": 675, "y": 450},
         {"id": "drop_dorm4", "label": "Drop - KTX 4", "x": 1030, "y": 720},
     ],
     "landmarks": [
@@ -792,13 +798,13 @@ def save_pretty_preview() -> None:
     ax.set_facecolor(TYPE_COLORS["background"])
 
     zorders = {
-        "roads": 2,
+        "roads": 14,
         "yards": 3,
         "buildings": 8,
         "walls_no_fly": 10,
-        "trees_high": 11,
-        "trees_medium": 12,
-        "trees_low_gardens": 13,
+        "trees_high": 5,
+        "trees_medium": 5,
+        "trees_low_gardens": 6,
     }
 
     # Draw roads first with edges.
@@ -838,14 +844,14 @@ def save_pretty_preview() -> None:
                 add_shadowed_polygon(ax, obj["points"], color, edgecolor=edge, linewidth=0.8, alpha=alpha, zorder=z)
 
             # Label important objects only.
-            if cls in {"building", "no_fly"}:
+            if cls in {"building", "no_fly"} and not obj["id"].endswith("_wing"):
                 pts = np.asarray(obj["points"], dtype=float)
                 add_label(ax, float(pts[:, 0].mean()), float(pts[:, 1].mean()), obj["label"], size=8)
 
-    # Decorative courtyard paths.
-    ax.plot([420, 790], [548, 548], color="#d0b8a8", linewidth=3.0, zorder=14)
-    ax.plot([605, 605], [450, 645], color="#d0b8a8", linewidth=3.0, zorder=14)
-    courtyard_center = Circle((605, 548), 32, facecolor="#7fb76d", edgecolor="#5f9843", linewidth=0.8, alpha=0.95, zorder=15)
+    # Decorative garden paths, matching the central garden in the reference plan.
+    ax.plot([390, 610], [465, 465], color="#d0b8a8", linewidth=3.0, zorder=15)
+    ax.plot([505, 505], [350, 590], color="#d0b8a8", linewidth=3.0, zorder=15)
+    courtyard_center = Circle((505, 465), 28, facecolor="#9dcc76", edgecolor="#5f9843", linewidth=0.8, alpha=0.95, zorder=16)
     ax.add_patch(courtyard_center)
 
     # Vehicles.

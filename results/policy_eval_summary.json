@@ -9,9 +9,9 @@
     "success_rate": 0.0,
     "collision_rate": 1.0,
     "timeout_rate": 0.0,
-    "avg_steps": 99.95,
-    "avg_reward": -115.76,
-    "avg_final_distance_px": 798.79
+    "avg_steps": 104.75,
+    "avg_reward": -115.51,
+    "avg_final_distance_px": 802.92
   },
   {
     "policy": "random",
@@ -23,9 +23,9 @@
     "success_rate": 0.0,
     "collision_rate": 1.0,
     "timeout_rate": 0.0,
-    "avg_steps": 99.95,
-    "avg_reward": -115.79,
-    "avg_final_distance_px": 533.68
+    "avg_steps": 104.75,
+    "avg_reward": -115.71,
+    "avg_final_distance_px": 531.35
   },
   {
     "policy": "random",
@@ -37,9 +37,9 @@
     "success_rate": 0.0,
     "collision_rate": 1.0,
     "timeout_rate": 0.0,
-    "avg_steps": 99.95,
-    "avg_reward": -116.16,
-    "avg_final_distance_px": 330.0
+    "avg_steps": 104.75,
+    "avg_reward": -116.14,
+    "avg_final_distance_px": 327.94
   },
   {
     "policy": "random",
@@ -51,9 +51,9 @@
     "success_rate": 0.0,
     "collision_rate": 1.0,
     "timeout_rate": 0.0,
-    "avg_steps": 99.95,
-    "avg_reward": -116.23,
-    "avg_final_distance_px": 460.22
+    "avg_steps": 104.75,
+    "avg_reward": -115.64,
+    "avg_final_distance_px": 681.23
   },
   {
     "policy": "random",
@@ -65,23 +65,23 @@
     "success_rate": 0.0,
     "collision_rate": 1.0,
     "timeout_rate": 0.0,
-    "avg_steps": 99.95,
-    "avg_reward": -116.71,
-    "avg_final_distance_px": 406.44
+    "avg_steps": 104.75,
+    "avg_reward": -116.1,
+    "avg_final_distance_px": 401.41
   },
   {
     "policy": "greedy",
     "goal_id": "drop_t45",
     "episodes": 5,
-    "success_count": 5,
+    "success_count": 0,
     "collision_count": 0,
-    "timeout_count": 0,
-    "success_rate": 1.0,
+    "timeout_count": 5,
+    "success_rate": 0.0,
     "collision_rate": 0.0,
-    "timeout_rate": 0.0,
-    "avg_steps": 103.0,
-    "avg_reward": 236.92,
-    "avg_final_distance_px": 25.09
+    "timeout_rate": 1.0,
+    "avg_steps": 500.0,
+    "avg_reward": -873.55,
+    "avg_final_distance_px": 331.75
   },
   {
     "policy": "greedy",
@@ -94,7 +94,7 @@
     "collision_rate": 0.0,
     "timeout_rate": 0.0,
     "avg_steps": 68.0,
-    "avg_reward": 145.73,
+    "avg_reward": 140.23,
     "avg_final_distance_px": 23.31
   },
   {
@@ -107,23 +107,23 @@
     "success_rate": 1.0,
     "collision_rate": 0.0,
     "timeout_rate": 0.0,
-    "avg_steps": 42.0,
-    "avg_reward": 114.64,
-    "avg_final_distance_px": 26.19
+    "avg_steps": 43.0,
+    "avg_reward": 115.15,
+    "avg_final_distance_px": 23.16
   },
   {
     "policy": "greedy",
     "goal_id": "drop_c1",
     "episodes": 5,
-    "success_count": 5,
+    "success_count": 0,
     "collision_count": 0,
-    "timeout_count": 0,
-    "success_rate": 1.0,
+    "timeout_count": 5,
+    "success_rate": 0.0,
     "collision_rate": 0.0,
-    "timeout_rate": 0.0,
-    "avg_steps": 54.0,
-    "avg_reward": 174.05,
-    "avg_final_distance_px": 22.98
+    "timeout_rate": 1.0,
+    "avg_steps": 500.0,
+    "avg_reward": -894.99,
+    "avg_final_distance_px": 225.14
   },
   {
     "policy": "greedy",
@@ -135,8 +135,8 @@
     "success_rate": 1.0,
     "collision_rate": 0.0,
     "timeout_rate": 0.0,
-    "avg_steps": 48.0,
-    "avg_reward": 149.79,
-    "avg_final_distance_px": 28.95
+    "avg_steps": 49.0,
+    "avg_reward": 142.2,
+    "avg_final_distance_px": 25.38
   }
 ]

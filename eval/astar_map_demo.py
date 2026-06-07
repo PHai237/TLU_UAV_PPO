@@ -45,7 +45,7 @@ def find_point(points, point_id: str):
 
 
 def heuristic(a, b):
-    return abs(a[0] - b[0]) + abs(a[1] - b[1])
+    return math.sqrt((a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2)
 
 
 def path_length(path):
@@ -77,6 +77,19 @@ def astar(occupancy_grid: np.ndarray, start, goal, step: int = 8):
         if x < 0 or x >= width or y < 0 or y >= height:
             return False
         return occupancy_grid[y, x] == 0
+
+    def is_segment_free(a, b):
+        dist = euclidean_distance(a, b)
+        sample_count = max(2, int(math.ceil(dist / 2.0)))
+
+        for i in range(sample_count + 1):
+            t = i / sample_count
+            x = int(round(a[0] * (1.0 - t) + b[0] * t))
+            y = int(round(a[1] * (1.0 - t) + b[1] * t))
+            if not is_free(x, y):
+                return False
+
+        return True
 
     start = (int(start[0]), int(start[1]))
     goal = (int(goal[0]), int(goal[1]))
@@ -116,7 +129,7 @@ def astar(occupancy_grid: np.ndarray, start, goal, step: int = 8):
             ny = current[1] + dy
             neighbor = (nx, ny)
 
-            if not is_free(nx, ny):
+            if not is_segment_free(current, neighbor):
                 continue
 
             move_cost = np.sqrt(dx * dx + dy * dy)

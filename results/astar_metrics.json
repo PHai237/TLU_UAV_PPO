@@ -6,12 +6,12 @@
     "start_x": 1350,
     "start_y": 490,
     "goal_x": 590,
-    "goal_y": 270,
+    "goal_y": 245,
     "path_found": true,
     "path_points": 96,
-    "path_length_px": 850.41,
-    "straight_distance_px": 791.2,
-    "efficiency_ratio": 1.0748,
+    "path_length_px": 860.85,
+    "straight_distance_px": 798.51,
+    "efficiency_ratio": 1.0781,
     "status": "pass"
   },
   {
@@ -24,9 +24,9 @@
     "goal_y": 275,
     "path_found": true,
     "path_points": 61,
-    "path_length_px": 569.53,
+    "path_length_px": 568.79,
     "straight_distance_px": 525.95,
-    "efficiency_ratio": 1.0829,
+    "efficiency_ratio": 1.0814,
     "status": "pass"
   },
   {
@@ -38,10 +38,10 @@
     "goal_x": 1055,
     "goal_y": 365,
     "path_found": true,
-    "path_points": 40,
-    "path_length_px": 360.12,
+    "path_points": 42,
+    "path_length_px": 367.9,
     "straight_distance_px": 320.39,
-    "efficiency_ratio": 1.124,
+    "efficiency_ratio": 1.1483,
     "status": "pass"
   },
   {
@@ -50,13 +50,13 @@
     "goal_id": "drop_c1",
     "start_x": 1350,
     "start_y": 490,
-    "goal_x": 900,
-    "goal_y": 475,
+    "goal_x": 675,
+    "goal_y": 450,
     "path_found": true,
-    "path_points": 57,
-    "path_length_px": 456.68,
-    "straight_distance_px": 450.25,
-    "efficiency_ratio": 1.0143,
+    "path_points": 85,
+    "path_length_px": 690.86,
+    "straight_distance_px": 676.18,
+    "efficiency_ratio": 1.0217,
     "status": "pass"
   },
   {
@@ -69,9 +69,9 @@
     "goal_y": 720,
     "path_found": true,
     "path_points": 41,
-    "path_length_px": 416.34,
+    "path_length_px": 414.78,
     "straight_distance_px": 394.08,
-    "efficiency_ratio": 1.0565,
+    "efficiency_ratio": 1.0525,
     "status": "pass"
   }
 ]
