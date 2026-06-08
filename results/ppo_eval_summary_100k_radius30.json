@@ -9,23 +9,23 @@
     "success_rate": 1.0,
     "collision_rate": 0.0,
     "timeout_rate": 0.0,
-    "avg_steps": 103.0,
-    "avg_reward": 237.83,
-    "avg_final_distance_px": 25.54
+    "avg_steps": 116.0,
+    "avg_reward": 218.51,
+    "avg_final_distance_px": 29.06
   },
   {
     "policy": "ppo_100k_radius30",
     "goal_id": "drop_library",
     "episodes": 10,
-    "success_count": 10,
+    "success_count": 0,
     "collision_count": 0,
-    "timeout_count": 0,
-    "success_rate": 1.0,
+    "timeout_count": 10,
+    "success_rate": 0.0,
     "collision_rate": 0.0,
-    "timeout_rate": 0.0,
-    "avg_steps": 73.0,
-    "avg_reward": 187.5,
-    "avg_final_distance_px": 26.95
+    "timeout_rate": 1.0,
+    "avg_steps": 500.0,
+    "avg_reward": -83.06,
+    "avg_final_distance_px": 507.54
   },
   {
     "policy": "ppo_100k_radius30",
@@ -37,23 +37,23 @@
     "success_rate": 1.0,
     "collision_rate": 0.0,
     "timeout_rate": 0.0,
-    "avg_steps": 44.0,
-    "avg_reward": 147.27,
-    "avg_final_distance_px": 27.03
+    "avg_steps": 57.0,
+    "avg_reward": 152.8,
+    "avg_final_distance_px": 28.1
   },
   {
     "policy": "ppo_100k_radius30",
     "goal_id": "drop_c1",
     "episodes": 10,
-    "success_count": 0,
+    "success_count": 10,
     "collision_count": 0,
-    "timeout_count": 10,
-    "success_rate": 0.0,
+    "timeout_count": 0,
+    "success_rate": 1.0,
     "collision_rate": 0.0,
-    "timeout_rate": 1.0,
-    "avg_steps": 500.0,
-    "avg_reward": -13.24,
-    "avg_final_distance_px": 91.45
+    "timeout_rate": 0.0,
+    "avg_steps": 78.0,
+    "avg_reward": 208.6,
+    "avg_final_distance_px": 29.53
   },
   {
     "policy": "ppo_100k_radius30",
@@ -65,8 +65,8 @@
     "success_rate": 1.0,
     "collision_rate": 0.0,
     "timeout_rate": 0.0,
-    "avg_steps": 54.0,
-    "avg_reward": 162.99,
-    "avg_final_distance_px": 29.91
+    "avg_steps": 57.0,
+    "avg_reward": 154.41,
+    "avg_final_distance_px": 29.41
   }
 ]
