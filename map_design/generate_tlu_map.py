@@ -507,6 +507,66 @@ layers: list[dict[str, Any]] = [
                 subclass="tree_medium",
                 risk_weight=0.60,
             ),
+            item(
+                "tree_medium_lower_garden_north",
+                "Hàng cây mép trên ô đất dưới vườn hoa",
+                "green",
+                oval(510, 525, 95, 24),
+                height_level=2,
+                estimated_height_m=3,
+                subclass="tree_medium",
+                risk_weight=0.45,
+            ),
+            item(
+                "tree_medium_lower_garden_west",
+                "Hàng cây mép trái ô đất dưới vườn hoa",
+                "green",
+                oval(375, 585, 28, 65),
+                height_level=2,
+                estimated_height_m=3,
+                subclass="tree_medium",
+                risk_weight=0.45,
+            ),
+            item(
+                "tree_medium_lower_garden_south",
+                "Hàng cây mép dưới ô đất dưới vườn hoa",
+                "green",
+                oval(505, 655, 115, 24),
+                height_level=2,
+                estimated_height_m=3,
+                subclass="tree_medium",
+                risk_weight=0.45,
+            ),
+            item(
+                "tree_medium_lower_c1_north",
+                "Hàng cây mép trên ô đất dưới C1",
+                "green",
+                oval(780, 525, 105, 28),
+                height_level=2,
+                estimated_height_m=3,
+                subclass="tree_medium",
+                risk_weight=0.50,
+            ),
+            item(
+                "tree_medium_lower_c1_west",
+                "Hàng cây mép trái ô đất dưới C1",
+                "green",
+                oval(710, 585, 30, 70),
+                height_level=2,
+                estimated_height_m=3,
+                subclass="tree_medium",
+                risk_weight=0.50,
+            ),
+            item(
+                "tree_medium_lower_c1_south",
+                "Hàng cây mép dưới ô đất dưới C1",
+                "green",
+                oval(830, 655, 120, 24),
+                height_level=2,
+                estimated_height_m=3,
+                subclass="tree_medium",
+                risk_weight=0.50,
+            ),
         ],
     },
     {
@@ -589,6 +649,7 @@ pois = {
     ],
     "landmarks": [
         {"id": "lm_a1", "label": "A1", "x": 170, "y": 420},
+        {"id": "lm_a1_door", "label": "Cửa A1", "x": 245, "y": 278},
         {"id": "lm_t45", "label": "T45", "x": 590, "y": 185},
         {"id": "lm_library", "label": "Thư viện", "x": 870, "y": 185},
         {"id": "lm_k1", "label": "K1", "x": 1205, "y": 300},
@@ -607,6 +668,7 @@ POI_OVERRIDES = {
     "drop_c1": ("Cửa C1", 735, 442),
     "drop_dorm4": ("Cửa KTX số 4", 962, 732),
     "lm_a1": ("A1", 170, 420),
+    "lm_a1_door": ("Cửa A1", 245, 278),
     "lm_t45": ("Hội trường T45", 500, 135),
     "lm_library": ("Thư viện", 800, 135),
     "lm_k1": ("K1", 1205, 205),
@@ -839,6 +901,21 @@ def draw_poi(ax, p: dict[str, Any], kind: str):
     )
 
 
+def draw_door_marker(ax, p: dict[str, Any]):
+    x = float(p["x"])
+    y = float(p["y"])
+    ax.scatter(x, y, s=115, marker="s", color="#6d8fb3", edgecolors="black", linewidths=1.0, zorder=29)
+    ax.text(
+        x + 14,
+        y - 10,
+        p["label"],
+        fontsize=8,
+        weight="bold",
+        zorder=30,
+        bbox={"boxstyle": "round,pad=0.20", "facecolor": "white", "edgecolor": "none", "alpha": 0.82},
+    )
+
+
 def save_pretty_preview() -> None:
     PREVIEW_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -923,6 +1000,9 @@ def save_pretty_preview() -> None:
         draw_poi(ax, p, "pickup")
     for p in pois["dropoff_points"]:
         draw_poi(ax, p, "dropoff")
+    for p in pois["landmarks"]:
+        if p["id"].endswith("_door"):
+            draw_door_marker(ax, p)
 
     # Legend as small custom patches.
     legend_items = [
