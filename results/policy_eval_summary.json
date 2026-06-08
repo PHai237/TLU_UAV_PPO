@@ -10,7 +10,7 @@
     "collision_rate": 1.0,
     "timeout_rate": 0.0,
     "avg_steps": 102.0,
-    "avg_reward": -115.4,
+    "avg_reward": -115.83,
     "avg_final_distance_px": 890.3
   },
   {
@@ -24,7 +24,7 @@
     "collision_rate": 1.0,
     "timeout_rate": 0.0,
     "avg_steps": 102.0,
-    "avg_reward": -115.38,
+    "avg_reward": -115.81,
     "avg_final_distance_px": 518.83
   },
   {
@@ -38,7 +38,7 @@
     "collision_rate": 1.0,
     "timeout_rate": 0.0,
     "avg_steps": 102.0,
-    "avg_reward": -115.87,
+    "avg_reward": -116.3,
     "avg_final_distance_px": 327.68
   },
   {
@@ -52,7 +52,7 @@
     "collision_rate": 1.0,
     "timeout_rate": 0.0,
     "avg_steps": 102.0,
-    "avg_reward": -115.67,
+    "avg_reward": -116.1,
     "avg_final_distance_px": 623.88
   },
   {
@@ -66,7 +66,7 @@
     "collision_rate": 1.0,
     "timeout_rate": 0.0,
     "avg_steps": 102.0,
-    "avg_reward": -116.04,
+    "avg_reward": -116.47,
     "avg_final_distance_px": 466.16
   },
   {
@@ -135,8 +135,8 @@
     "success_rate": 1.0,
     "collision_rate": 0.0,
     "timeout_rate": 0.0,
-    "avg_steps": 59.0,
-    "avg_reward": 151.08,
-    "avg_final_distance_px": 27.17
+    "avg_steps": 65.0,
+    "avg_reward": 116.77,
+    "avg_final_distance_px": 25.24
   }
 ]
