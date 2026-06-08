@@ -42,6 +42,23 @@ GOAL_IDS = [
     "drop_dorm4",
 ]
 
+GOAL_LABELS = {
+    "drop_t45": "Hội trường T45",
+    "drop_library": "Thư viện",
+    "drop_k1": "K1",
+    "drop_c1": "C1",
+    "drop_dorm4": "KTX số 4",
+}
+
+EVENT_LABELS = {
+    "goal_reached": "Hoàn thành",
+    "timeout": "Quá thời gian",
+    "collision": "Va chạm",
+    "move": "Đang di chuyển",
+    "reset": "Khởi tạo",
+    "unknown": "Không rõ",
+}
+
 
 def unpack_reset(result):
     if isinstance(result, tuple):
@@ -90,11 +107,11 @@ def render_trajectory(env: TluUavEnv, positions, title: str, output_path: Path):
     xs = [float(p[0]) for p in positions]
     ys = [float(p[1]) for p in positions]
 
-    ax.plot(xs, ys, linewidth=2.2, label="PPO trajectory")
+    ax.plot(xs, ys, linewidth=2.2, label="Quỹ đạo PPO")
     ax.scatter(xs, ys, s=5)
 
-    ax.scatter(start_x, start_y, s=140, marker="o", edgecolors="black", label="Pickup")
-    ax.scatter(goal_x, goal_y, s=160, marker="X", edgecolors="black", label="Goal")
+    ax.scatter(start_x, start_y, s=140, marker="o", edgecolors="black", label="Cổng sau")
+    ax.scatter(goal_x, goal_y, s=160, marker="X", edgecolors="black", label="Điểm giao")
 
     ax.text(start_x + 10, start_y - 10, start_label, fontsize=8, weight="bold")
     ax.text(goal_x + 10, goal_y - 10, goal_label, fontsize=8, weight="bold")
@@ -203,7 +220,7 @@ def main():
         render_trajectory(
             env=sample["env"],
             positions=sample["positions"],
-            title=f"PPO preliminary: pickup_back_gate -> {goal_id} ({sample['event']})",
+            title=f"PPO: Cổng sau → {GOAL_LABELS[goal_id]} | {EVENT_LABELS.get(sample['event'], sample['event'])}",
             output_path=output_path,
         )
 

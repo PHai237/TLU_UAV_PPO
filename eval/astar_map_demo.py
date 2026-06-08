@@ -31,6 +31,14 @@ TYPE_COLORS = [
     "#2878bd",  # dropoff
 ]
 
+GOAL_LABELS = {
+    "drop_t45": "Hội trường T45",
+    "drop_library": "Thư viện",
+    "drop_k1": "K1",
+    "drop_c1": "C1",
+    "drop_dorm4": "KTX số 4",
+}
+
 
 def load_pois():
     with POIS_PATH.open("r", encoding="utf-8") as f:
@@ -160,13 +168,13 @@ def render_path(type_map, pois, start, goal, path, title, output_path):
     cmap = ListedColormap(TYPE_COLORS)
     ax.imshow(type_map, cmap=cmap, origin="upper", vmin=0, vmax=len(TYPE_COLORS) - 1)
 
-    ax.scatter(start[0], start[1], s=140, marker="o", edgecolors="black", label="Pickup")
-    ax.scatter(goal[0], goal[1], s=160, marker="X", edgecolors="black", label="Dropoff")
+    ax.scatter(start[0], start[1], s=140, marker="o", edgecolors="black", label="Cổng sau")
+    ax.scatter(goal[0], goal[1], s=160, marker="X", edgecolors="black", label="Điểm giao")
 
     if path:
         xs = [p[0] for p in path]
         ys = [p[1] for p in path]
-        ax.plot(xs, ys, linewidth=2.5, label="A* baseline path")
+        ax.plot(xs, ys, linewidth=2.5, label="Đường đi A*")
         ax.scatter(xs, ys, s=4)
 
     for p in pois["pickup_points"]:
@@ -252,7 +260,7 @@ def main():
                 start=start,
                 goal=goal,
                 path=path,
-                title=f"A* baseline: {pickup_id} -> {dropoff_id}",
+                title=f"A*: Cổng sau → {GOAL_LABELS.get(dropoff_id, dropoff_id)}",
                 output_path=output_path,
             )
             print(f"Saved: {output_path}")

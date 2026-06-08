@@ -174,7 +174,7 @@ layers: list[dict[str, Any]] = [
                 "road_main_horizontal",
                 "Main Internal Road",
                 "road",
-                rect(245, 490, 1400, 535),
+                rect(245, 455, 1400, 505),
             ),
             # Road in front of T45 / library.
             item(
@@ -215,7 +215,7 @@ layers: list[dict[str, Any]] = [
                 "road_c1_k1_vertical",
                 "C1 - K1 Vertical Road",
                 "road",
-                rect(1015, 250, 1070, 660),
+                rect(960, 250, 1015, 660),
             ),
             # Road to back gate on the right edge.
             item(
@@ -229,7 +229,7 @@ layers: list[dict[str, Any]] = [
                 "road_to_dorm4",
                 "Road to Dormitory 4",
                 "road",
-                rect(1015, 490, 1070, 735),
+                rect(960, 490, 1015, 735),
             ),
             # Road along B4 separator wall.
             item(
@@ -247,7 +247,7 @@ layers: list[dict[str, Any]] = [
                 "yard_main_courtyard",
                 "Sân trước T45",
                 "yard",
-                rect(365, 320, 635, 650),
+                rect(365, 320, 635, 445),
                 risk_weight=0.08,
                 render_color=TYPE_COLORS["paving"],
             ),
@@ -255,7 +255,7 @@ layers: list[dict[str, Any]] = [
                 "yard_triangle_open_space",
                 "Open Space: Library - K1 - C1",
                 "yard",
-                rect(690, 305, 1015, 430),
+                rect(690, 305, 960, 430),
                 risk_weight=0.10,
                 render_color="#ead9c6",
             ),
@@ -350,7 +350,7 @@ layers: list[dict[str, Any]] = [
                 "building_c1",
                 "C1",
                 "building",
-                rect(735, 350, 900, 475),
+                rect(735, 345, 880, 445),
                 height_level=1,
                 estimated_height_m=12,
                 subclass="academic_building",
@@ -361,7 +361,7 @@ layers: list[dict[str, Any]] = [
                 "building_c1_wing",
                 "C1 Wing",
                 "building",
-                rect(700, 385, 770, 450),
+                rect(700, 375, 770, 430),
                 height_level=1,
                 estimated_height_m=12,
                 subclass="academic_building",
@@ -372,7 +372,7 @@ layers: list[dict[str, Any]] = [
                 "building_b4_lab",
                 "B4 - Khu thí nghiệm",
                 "building",
-                rect(95, 705, 235, 760),
+                rect(335, 585, 470, 645),
                 height_level=1,
                 estimated_height_m=10,
                 subclass="lab_inactive",
@@ -516,7 +516,7 @@ layers: list[dict[str, Any]] = [
                 "garden_low_1",
                 "Bồn cây thấp 1",
                 "green",
-                rect(390, 350, 465, 405),
+                rect(390, 340, 455, 375),
                 height_level=3,
                 estimated_height_m=1.2,
                 subclass="tree_low",
@@ -527,7 +527,7 @@ layers: list[dict[str, Any]] = [
                 "garden_low_2",
                 "Bồn cây thấp 2",
                 "green",
-                rect(535, 350, 610, 405),
+                rect(545, 340, 610, 375),
                 height_level=3,
                 estimated_height_m=1.2,
                 subclass="tree_low",
@@ -538,7 +538,7 @@ layers: list[dict[str, Any]] = [
                 "garden_low_3",
                 "Bồn cây thấp 3",
                 "green",
-                rect(390, 535, 465, 590),
+                rect(390, 400, 455, 435),
                 height_level=3,
                 estimated_height_m=1.2,
                 subclass="tree_low",
@@ -549,7 +549,7 @@ layers: list[dict[str, Any]] = [
                 "garden_low_4",
                 "Bồn cây thấp 4",
                 "green",
-                rect(535, 535, 610, 590),
+                rect(545, 400, 610, 435),
                 height_level=3,
                 estimated_height_m=1.2,
                 subclass="tree_low",
@@ -560,7 +560,7 @@ layers: list[dict[str, Any]] = [
                 "garden_low_center",
                 "Bồn cây thấp giữa sân",
                 "green",
-                oval(505, 465, 48, 28),
+                oval(505, 388, 42, 22),
                 height_level=3,
                 estimated_height_m=1.2,
                 subclass="tree_low",
@@ -598,6 +598,31 @@ pois = {
         {"id": "lm_back_gate", "label": "Cổng sau", "x": 1350, "y": 490},
     ],
 }
+
+POI_OVERRIDES = {
+    "pickup_back_gate": ("Cổng sau", 1350, 490),
+    "drop_t45": ("Cửa T45", 500, 245),
+    "drop_library": ("Cửa thư viện", 970, 275),
+    "drop_k1": ("Cửa K1", 1055, 365),
+    "drop_c1": ("Cửa C1", 820, 455),
+    "drop_dorm4": ("Cửa KTX số 4", 1030, 720),
+    "lm_a1": ("A1", 170, 420),
+    "lm_t45": ("Hội trường T45", 500, 135),
+    "lm_library": ("Thư viện", 800, 135),
+    "lm_k1": ("K1", 1205, 315),
+    "lm_c1": ("C1", 820, 400),
+    "lm_b4": ("B4", 405, 615),
+    "lm_dorm4": ("KTX số 4", 960, 780),
+    "lm_back_gate": ("Cổng sau", 1350, 490),
+}
+
+for group_name in ("pickup_points", "dropoff_points", "landmarks"):
+    for point in pois[group_name]:
+        override = POI_OVERRIDES.get(point["id"])
+        if override is None:
+            continue
+
+        point["label"], point["x"], point["y"] = override
 
 # Vehicles are static in V3. Later they can become dynamic obstacles.
 dynamic_obstacles = {
@@ -656,6 +681,9 @@ def build_maps() -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
     # Draw order follows layer order. Later layers can overwrite type/height/risk.
     for layer in semantic_map["layers"]:
         for obj in layer["items"]:
+            if obj["id"] in {"wall_b4_separator", "no_fly_inside_b4"}:
+                continue
+
             mask = polygon_mask(obj["points"], WIDTH, HEIGHT)
             cls = obj["class"]
             h_level = int(obj.get("height_level", 0))
@@ -675,6 +703,9 @@ def build_maps() -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
 
     for layer in semantic_map["layers"]:
         for obj in layer["items"]:
+            if obj["id"] in {"wall_b4_separator", "no_fly_inside_b4"}:
+                continue
+
             if obj["class"] != "road":
                 continue
 
@@ -812,6 +843,9 @@ def save_pretty_preview() -> None:
         layer_name = layer["name"]
         z = zorders.get(layer_name, 5)
         for obj in layer["items"]:
+            if obj["id"] in {"wall_b4_separator", "no_fly_inside_b4"}:
+                continue
+
             cls = obj["class"]
             color = obj.get("render_color")
             if color is None:
@@ -849,9 +883,9 @@ def save_pretty_preview() -> None:
                 add_label(ax, float(pts[:, 0].mean()), float(pts[:, 1].mean()), obj["label"], size=8)
 
     # Decorative garden paths, matching the central garden in the reference plan.
-    ax.plot([390, 610], [465, 465], color="#d0b8a8", linewidth=3.0, zorder=15)
-    ax.plot([505, 505], [350, 590], color="#d0b8a8", linewidth=3.0, zorder=15)
-    courtyard_center = Circle((505, 465), 28, facecolor="#9dcc76", edgecolor="#5f9843", linewidth=0.8, alpha=0.95, zorder=16)
+    ax.plot([390, 610], [388, 388], color="#ef9a9a", linewidth=1.4, linestyle="--", zorder=15)
+    ax.plot([505, 505], [338, 438], color="#ef9a9a", linewidth=1.4, linestyle="--", zorder=15)
+    courtyard_center = Circle((505, 388), 22, facecolor="#9dcc76", edgecolor="#5f9843", linewidth=0.8, alpha=0.95, zorder=16)
     ax.add_patch(courtyard_center)
 
     # Vehicles.
@@ -866,7 +900,7 @@ def save_pretty_preview() -> None:
 
     # Back gate visual indicator.
     ax.annotate(
-        "Cổng sau / Pickup",
+        "Cổng sau",
         xy=(1350, 490),
         xytext=(1245, 455),
         fontsize=10,
@@ -878,13 +912,12 @@ def save_pretty_preview() -> None:
 
     # Legend as small custom patches.
     legend_items = [
-        ("Road", TYPE_COLORS["road"]),
-        ("Yard / Paving", TYPE_COLORS["paving"]),
-        ("Building", TYPE_COLORS["building"]),
-        ("Tree / Green", TYPE_COLORS["green"]),
-        ("No-fly / Wall", TYPE_COLORS["no_fly"]),
-        ("Pickup", TYPE_COLORS["pickup"]),
-        ("Dropoff", TYPE_COLORS["dropoff"]),
+        ("Đường đi", TYPE_COLORS["road"]),
+        ("Sân / nền", TYPE_COLORS["paving"]),
+        ("Tòa nhà", TYPE_COLORS["building"]),
+        ("Cây xanh", TYPE_COLORS["green"]),
+        ("Cổng sau", TYPE_COLORS["pickup"]),
+        ("Điểm giao", TYPE_COLORS["dropoff"]),
     ]
     lx, ly = 25, 25
     for i, (name, color) in enumerate(legend_items):
@@ -895,9 +928,10 @@ def save_pretty_preview() -> None:
     ax.set_xlim(0, WIDTH)
     ax.set_ylim(HEIGHT, 0)
     ax.set_aspect("equal")
-    ax.set_title("TLU UAV Campus Semantic Map V3 - A1 / T45 / Library / K1 / C1 / B4 / Dorm4 / Back Gate", fontsize=13, weight="bold")
-    ax.set_xlabel("X")
-    ax.set_ylabel("Y")
+    ax.set_title("Bản đồ mô phỏng khuôn viên Trường Đại học Thủy Lợi", fontsize=13, weight="bold")
+    ax.set_xlabel("")
+    ax.set_ylabel("")
+    ax.tick_params(labelsize=8, colors="#666666")
     ax.grid(False)
 
     fig.tight_layout()

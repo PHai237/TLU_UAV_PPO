@@ -2,7 +2,7 @@
   "pickup_points": [
     {
       "id": "pickup_back_gate",
-      "label": "Pickup - Cổng sau",
+      "label": "Cổng sau",
       "x": 1350,
       "y": 490
     }
@@ -10,31 +10,31 @@
   "dropoff_points": [
     {
       "id": "drop_t45",
-      "label": "Drop - T45",
-      "x": 590,
+      "label": "Cửa T45",
+      "x": 500,
       "y": 245
     },
     {
       "id": "drop_library",
-      "label": "Drop - Thư viện",
-      "x": 870,
+      "label": "Cửa thư viện",
+      "x": 970,
       "y": 275
     },
     {
       "id": "drop_k1",
-      "label": "Drop - K1",
+      "label": "Cửa K1",
       "x": 1055,
       "y": 365
     },
     {
       "id": "drop_c1",
-      "label": "Drop - C1",
-      "x": 675,
-      "y": 450
+      "label": "Cửa C1",
+      "x": 820,
+      "y": 455
     },
     {
       "id": "drop_dorm4",
-      "label": "Drop - KTX 4",
+      "label": "Cửa KTX số 4",
       "x": 1030,
       "y": 720
     }
@@ -48,39 +48,39 @@
     },
     {
       "id": "lm_t45",
-      "label": "T45",
-      "x": 590,
-      "y": 185
+      "label": "Hội trường T45",
+      "x": 500,
+      "y": 135
     },
     {
       "id": "lm_library",
       "label": "Thư viện",
-      "x": 870,
-      "y": 185
+      "x": 800,
+      "y": 135
     },
     {
       "id": "lm_k1",
       "label": "K1",
       "x": 1205,
-      "y": 300
+      "y": 315
     },
     {
       "id": "lm_c1",
       "label": "C1",
-      "x": 910,
-      "y": 550
+      "x": 820,
+      "y": 400
     },
     {
       "id": "lm_b4",
       "label": "B4",
-      "x": 170,
-      "y": 810
+      "x": 405,
+      "y": 615
     },
     {
       "id": "lm_dorm4",
       "label": "KTX số 4",
-      "x": 1180,
-      "y": 790
+      "x": 960,
+      "y": 780
     },
     {
       "id": "lm_back_gate",
