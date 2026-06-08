@@ -195,7 +195,7 @@ layers: list[dict[str, Any]] = [
                 "road_courtyard_bottom",
                 "Courtyard Bottom Road",
                 "road",
-                rect(315, 660, 1305, 720),
+                rect(315, 660, 1305, 705),
             ),
             item(
                 "road_courtyard_right",
@@ -229,14 +229,14 @@ layers: list[dict[str, Any]] = [
                 "road_to_dorm4",
                 "Road to Dormitory 4",
                 "road",
-                rect(960, 490, 1015, 735),
+                rect(960, 490, 1015, 705),
             ),
             # Road along B4 separator wall.
             item(
                 "road_b4_boundary",
                 "Road near B4 Wall",
                 "road",
-                rect(245, 700, 450, 755),
+                rect(245, 700, 560, 720),
             ),
         ],
     },
@@ -263,7 +263,7 @@ layers: list[dict[str, Any]] = [
                 "yard_dorm4_front",
                 "Dormitory 4 Front Yard",
                 "yard",
-                rect(1070, 580, 1305, 660),
+                rect(1070, 560, 1305, 650),
                 risk_weight=0.12,
                 render_color="#ead9c6",
             ),
@@ -315,7 +315,7 @@ layers: list[dict[str, Any]] = [
             # K1 is a two-block cluster on the right.
             item(
                 "building_k1_north",
-                "K1 - Block 1",
+                "K1",
                 "building",
                 rect(1085, 80, 1325, 220),
                 height_level=1,
@@ -326,9 +326,9 @@ layers: list[dict[str, Any]] = [
             ),
             item(
                 "building_k1_tower",
-                "K1 - 11 Tang",
+                "",
                 "building",
-                rect(1105, 235, 1180, 300),
+                rect(1130, 220, 1210, 315),
                 height_level=1,
                 estimated_height_m=35,
                 subclass="k1_tower",
@@ -337,7 +337,7 @@ layers: list[dict[str, Any]] = [
             ),
             item(
                 "building_k1_south",
-                "K1 - Block 2",
+                "",
                 "building",
                 rect(1085, 315, 1325, 430),
                 height_level=1,
@@ -370,9 +370,9 @@ layers: list[dict[str, Any]] = [
             ),
             item(
                 "building_b4_lab",
-                "B4 - Khu thí nghiệm",
+                "B4",
                 "building",
-                rect(335, 585, 470, 645),
+                rect(360, 735, 500, 790),
                 height_level=1,
                 estimated_height_m=10,
                 subclass="lab_inactive",
@@ -383,7 +383,7 @@ layers: list[dict[str, Any]] = [
                 "building_dorm4_first",
                 "KTX số 4",
                 "building",
-                rect(700, 730, 1225, 825),
+                rect(700, 740, 1225, 825),
                 height_level=1,
                 estimated_height_m=18,
                 subclass="dormitory_first_segment",
@@ -456,7 +456,7 @@ layers: list[dict[str, Any]] = [
                 "tree_high_b4_front",
                 "Cây cao trước B4",
                 "green",
-                oval(390, 800, 80, 60),
+                oval(420, 830, 55, 38),
                 height_level=1,
                 estimated_height_m=8,
                 subclass="tree_high",
@@ -471,11 +471,11 @@ layers: list[dict[str, Any]] = [
                 "tree_medium_front_t45_left",
                 "Cây trung bình trước T45 - trái",
                 "green",
-                oval(435, 350, 45, 38),
+                oval(435, 350, 1, 1),
                 height_level=2,
                 estimated_height_m=3,
                 subclass="tree_medium",
-                risk_weight=0.55,
+                risk_weight=0.0,
             ),
             item(
                 "tree_medium_front_t45_right",
@@ -602,16 +602,16 @@ pois = {
 POI_OVERRIDES = {
     "pickup_back_gate": ("Cổng sau", 1350, 490),
     "drop_t45": ("Cửa T45", 500, 245),
-    "drop_library": ("Cửa thư viện", 970, 275),
-    "drop_k1": ("Cửa K1", 1055, 365),
-    "drop_c1": ("Cửa C1", 820, 455),
-    "drop_dorm4": ("Cửa KTX số 4", 1030, 720),
+    "drop_library": ("Cửa thư viện", 970, 145),
+    "drop_k1": ("Cửa K1", 1120, 268),
+    "drop_c1": ("Cửa C1", 735, 442),
+    "drop_dorm4": ("Cửa KTX số 4", 962, 732),
     "lm_a1": ("A1", 170, 420),
     "lm_t45": ("Hội trường T45", 500, 135),
     "lm_library": ("Thư viện", 800, 135),
-    "lm_k1": ("K1", 1205, 315),
+    "lm_k1": ("K1", 1205, 205),
     "lm_c1": ("C1", 820, 400),
-    "lm_b4": ("B4", 405, 615),
+    "lm_b4": ("B4", 430, 762),
     "lm_dorm4": ("KTX số 4", 960, 780),
     "lm_back_gate": ("Cổng sau", 1350, 490),
 }
@@ -681,7 +681,7 @@ def build_maps() -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
     # Draw order follows layer order. Later layers can overwrite type/height/risk.
     for layer in semantic_map["layers"]:
         for obj in layer["items"]:
-            if obj["id"] in {"wall_b4_separator", "no_fly_inside_b4"}:
+            if obj["id"] in {"wall_b4_separator", "no_fly_inside_b4", "tree_medium_front_t45_left"}:
                 continue
 
             mask = polygon_mask(obj["points"], WIDTH, HEIGHT)
@@ -703,7 +703,7 @@ def build_maps() -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
 
     for layer in semantic_map["layers"]:
         for obj in layer["items"]:
-            if obj["id"] in {"wall_b4_separator", "no_fly_inside_b4"}:
+            if obj["id"] in {"wall_b4_separator", "no_fly_inside_b4", "tree_medium_front_t45_left"}:
                 continue
 
             if obj["class"] != "road":
@@ -752,12 +752,29 @@ def build_maps() -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
 # Pretty rendering
 # ============================================================
 
-def add_shadowed_polygon(ax, points, facecolor, edgecolor="#333333", linewidth=1.0, alpha=1.0, zorder=1):
+def add_shadowed_polygon(
+    ax,
+    points,
+    facecolor,
+    edgecolor="#333333",
+    linewidth=1.0,
+    alpha=1.0,
+    zorder=1,
+    shadow_alpha=0.10,
+):
     pts = np.asarray(points, dtype=float)
-    shadow_pts = pts + np.array([4.0, 4.0])
-    shadow = Polygon(shadow_pts, closed=True, facecolor="black", edgecolor="none", alpha=0.10, zorder=zorder - 0.1)
+    if shadow_alpha > 0.0:
+        shadow_pts = pts + np.array([4.0, 4.0])
+        shadow = Polygon(
+            shadow_pts,
+            closed=True,
+            facecolor="black",
+            edgecolor="none",
+            alpha=shadow_alpha,
+            zorder=zorder - 0.1,
+        )
+        ax.add_patch(shadow)
     patch = Polygon(pts, closed=True, facecolor=facecolor, edgecolor=edgecolor, linewidth=linewidth, alpha=alpha, zorder=zorder)
-    ax.add_patch(shadow)
     ax.add_patch(patch)
     return patch
 
@@ -843,7 +860,7 @@ def save_pretty_preview() -> None:
         layer_name = layer["name"]
         z = zorders.get(layer_name, 5)
         for obj in layer["items"]:
-            if obj["id"] in {"wall_b4_separator", "no_fly_inside_b4"}:
+            if obj["id"] in {"wall_b4_separator", "no_fly_inside_b4", "tree_medium_front_t45_left"}:
                 continue
 
             cls = obj["class"]
@@ -863,7 +880,16 @@ def save_pretty_preview() -> None:
                     color = "#cccccc"
 
             if cls == "road":
-                add_shadowed_polygon(ax, obj["points"], color, edgecolor=TYPE_COLORS["road_edge"], linewidth=1.0, alpha=1.0, zorder=z)
+                add_shadowed_polygon(
+                    ax,
+                    obj["points"],
+                    color,
+                    edgecolor=color,
+                    linewidth=0.2,
+                    alpha=1.0,
+                    zorder=z,
+                    shadow_alpha=0.0,
+                )
             elif cls == "yard":
                 add_shadowed_polygon(ax, obj["points"], color, edgecolor="#b9b09b", linewidth=0.9, alpha=0.98, zorder=z)
             elif cls == "building":
@@ -878,7 +904,7 @@ def save_pretty_preview() -> None:
                 add_shadowed_polygon(ax, obj["points"], color, edgecolor=edge, linewidth=0.8, alpha=alpha, zorder=z)
 
             # Label important objects only.
-            if cls in {"building", "no_fly"} and not obj["id"].endswith("_wing"):
+            if cls in {"building", "no_fly"} and obj["label"] and not obj["id"].endswith("_wing"):
                 pts = np.asarray(obj["points"], dtype=float)
                 add_label(ax, float(pts[:, 0].mean()), float(pts[:, 1].mean()), obj["label"], size=8)
 
@@ -897,18 +923,6 @@ def save_pretty_preview() -> None:
         draw_poi(ax, p, "pickup")
     for p in pois["dropoff_points"]:
         draw_poi(ax, p, "dropoff")
-
-    # Back gate visual indicator.
-    ax.annotate(
-        "Cổng sau",
-        xy=(1350, 490),
-        xytext=(1245, 455),
-        fontsize=10,
-        weight="bold",
-        arrowprops={"arrowstyle": "->", "linewidth": 1.5},
-        bbox={"boxstyle": "round,pad=0.25", "facecolor": "white", "edgecolor": "none", "alpha": 0.9},
-        zorder=40,
-    )
 
     # Legend as small custom patches.
     legend_items = [

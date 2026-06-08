@@ -1,6 +1,6 @@
 route,start_id,goal_id,start_x,start_y,goal_x,goal_y,path_found,path_points,path_length_px,straight_distance_px,efficiency_ratio,status
 pickup_back_gate_to_drop_t45,pickup_back_gate,drop_t45,1350,490,500,245,True,107,950.59,884.6,1.0746,pass
-pickup_back_gate_to_drop_library,pickup_back_gate,drop_library,1350,490,970,275,True,53,493.11,436.61,1.1294,pass
-pickup_back_gate_to_drop_k1,pickup_back_gate,drop_k1,1350,490,1055,365,True,42,367.9,320.39,1.1483,pass
-pickup_back_gate_to_drop_c1,pickup_back_gate,drop_c1,1350,490,820,455,True,67,543.7,531.15,1.0236,pass
-pickup_back_gate_to_drop_dorm4,pickup_back_gate,drop_dorm4,1350,490,1030,720,True,41,414.78,394.08,1.0525,pass
+pickup_back_gate_to_drop_library,pickup_back_gate,drop_library,1350,490,970,145,True,70,623.44,513.25,1.2147,pass
+pickup_back_gate_to_drop_k1,pickup_back_gate,drop_k1,1350,490,1120,268,True,55,473.4,319.66,1.4809,pass
+pickup_back_gate_to_drop_c1,pickup_back_gate,drop_c1,1350,490,735,442,True,78,634.88,616.87,1.0292,pass
+pickup_back_gate_to_drop_dorm4,pickup_back_gate,drop_dorm4,1350,490,962,732,True,49,487.58,457.28,1.0662,pass

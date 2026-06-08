@@ -24,8 +24,8 @@
     "collision_rate": 1.0,
     "timeout_rate": 0.0,
     "avg_steps": 102.0,
-    "avg_reward": -115.64,
-    "avg_final_distance_px": 443.48
+    "avg_reward": -115.38,
+    "avg_final_distance_px": 518.83
   },
   {
     "policy": "random",
@@ -38,8 +38,8 @@
     "collision_rate": 1.0,
     "timeout_rate": 0.0,
     "avg_steps": 102.0,
-    "avg_reward": -115.97,
-    "avg_final_distance_px": 328.9
+    "avg_reward": -115.87,
+    "avg_final_distance_px": 327.68
   },
   {
     "policy": "random",
@@ -52,8 +52,8 @@
     "collision_rate": 1.0,
     "timeout_rate": 0.0,
     "avg_steps": 102.0,
-    "avg_reward": -115.76,
-    "avg_final_distance_px": 538.61
+    "avg_reward": -115.67,
+    "avg_final_distance_px": 623.88
   },
   {
     "policy": "random",
@@ -66,8 +66,8 @@
     "collision_rate": 1.0,
     "timeout_rate": 0.0,
     "avg_steps": 102.0,
-    "avg_reward": -116.17,
-    "avg_final_distance_px": 403.61
+    "avg_reward": -116.04,
+    "avg_final_distance_px": 466.16
   },
   {
     "policy": "greedy",
@@ -93,23 +93,23 @@
     "success_rate": 1.0,
     "collision_rate": 0.0,
     "timeout_rate": 0.0,
-    "avg_steps": 58.0,
-    "avg_reward": 119.9,
-    "avg_final_distance_px": 28.1
+    "avg_steps": 74.0,
+    "avg_reward": 127.27,
+    "avg_final_distance_px": 29.89
   },
   {
     "policy": "greedy",
     "goal_id": "drop_k1",
     "episodes": 5,
-    "success_count": 5,
+    "success_count": 0,
     "collision_count": 0,
-    "timeout_count": 0,
-    "success_rate": 1.0,
+    "timeout_count": 5,
+    "success_rate": 0.0,
     "collision_rate": 0.0,
-    "timeout_rate": 0.0,
-    "avg_steps": 43.0,
-    "avg_reward": 115.15,
-    "avg_final_distance_px": 23.16
+    "timeout_rate": 1.0,
+    "avg_steps": 500.0,
+    "avg_reward": -1031.16,
+    "avg_final_distance_px": 165.45
   },
   {
     "policy": "greedy",
@@ -121,9 +121,9 @@
     "success_rate": 1.0,
     "collision_rate": 0.0,
     "timeout_rate": 0.0,
-    "avg_steps": 65.0,
-    "avg_reward": 189.18,
-    "avg_final_distance_px": 22.73
+    "avg_steps": 76.0,
+    "avg_reward": 201.3,
+    "avg_final_distance_px": 24.86
   },
   {
     "policy": "greedy",
@@ -135,8 +135,8 @@
     "success_rate": 1.0,
     "collision_rate": 0.0,
     "timeout_rate": 0.0,
-    "avg_steps": 50.0,
-    "avg_reward": 138.34,
-    "avg_final_distance_px": 26.2
+    "avg_steps": 59.0,
+    "avg_reward": 149.16,
+    "avg_final_distance_px": 27.17
   }
 ]
