@@ -79,10 +79,10 @@ def save_map_overview() -> None:
 
 def save_raster_layers() -> None:
     layers = [
-        ("Occupancy Grid", np.load(PROCESSED_DIR / "occupancy_grid.npy"), "gray_r", 0, 1),
-        ("Type Map", np.load(PROCESSED_DIR / "type_map.npy"), ListedColormap(TYPE_COLORS), 0, len(TYPE_COLORS) - 1),
-        ("Height Map", np.load(PROCESSED_DIR / "height_map.npy"), "viridis", 0, 3),
-        ("Risk Map", np.load(PROCESSED_DIR / "risk_map.npy"), "magma", 0, 1),
+        ("Lưới vật cản", np.load(PROCESSED_DIR / "occupancy_grid.npy"), "gray_r", 0, 1),
+        ("Lớp semantic", np.load(PROCESSED_DIR / "type_map.npy"), ListedColormap(TYPE_COLORS), 0, len(TYPE_COLORS) - 1),
+        ("Lớp độ cao tương đối", np.load(PROCESSED_DIR / "height_map.npy"), "viridis", 0, 3),
+        ("Lớp rủi ro", np.load(PROCESSED_DIR / "risk_map.npy"), "magma", 0, 1),
     ]
 
     fig, axes = plt.subplots(2, 2, figsize=(14, 8), dpi=180)

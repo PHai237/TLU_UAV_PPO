@@ -1,7 +1,7 @@
 group,id,label,x,y,inside_map,occupancy_at_point,is_free,nearest_obstacle_px
-pickup_points,pickup_back_gate,Cổng sau,1350,490,True,0,True,66.31
-dropoff_points,drop_t45,Cửa T45,500,245,True,0,True,26.0
-dropoff_points,drop_library,Cửa thư viện,985,145,True,0,True,26.0
-dropoff_points,drop_k1,Cửa K1,1105,268,True,0,True,25.0
-dropoff_points,drop_c1,Cửa C1,715,446,True,0,True,17.0
-dropoff_points,drop_dorm4,Cửa KTX số 4,962,722,True,0,True,18.0
+pickup_points,pickup_back_gate,Cổng sau,1350,490,Có,0,Có,66.31
+dropoff_points,drop_t45,Cửa T45,500,245,Có,0,Có,26.0
+dropoff_points,drop_library,Cửa thư viện,985,145,Có,0,Có,26.0
+dropoff_points,drop_k1,Cửa K1,1105,268,Có,0,Có,25.0
+dropoff_points,drop_c1,Cửa C1,715,446,Có,0,Có,17.0
+dropoff_points,drop_dorm4,Cửa KTX số 4,962,722,Có,0,Có,18.0

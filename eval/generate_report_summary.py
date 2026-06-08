@@ -14,18 +14,48 @@ TABLE_DIR = RESULTS_DIR / "report_tables"
 REPORT_PATH = RESULTS_DIR / "report_summary.md"
 
 GOAL_LABELS = {
-    "drop_t45": "Hoi truong T45",
-    "drop_library": "Thu vien",
+    "drop_t45": "Hội trường T45",
+    "drop_library": "Thư viện",
     "drop_k1": "K1",
     "drop_c1": "C1",
-    "drop_dorm4": "KTX so 4",
+    "drop_dorm4": "KTX số 4",
 }
 
 POLICY_LABELS = {
     "random": "Random baseline",
     "greedy": "Greedy baseline",
-    "ppo_100k_radius30": "PPO 100k radius30",
-    "ppo_preliminary": "PPO 50k preliminary",
+    "ppo_100k_radius30": "PPO 100k bán kính 30",
+    "ppo_preliminary": "PPO 50k sơ bộ",
+}
+
+REPORT_HEADERS = {
+    "goal": "Mục tiêu",
+    "path_found": "Tìm được đường",
+    "path_points": "Số điểm đường đi",
+    "path_length_px": "Độ dài đường đi (px)",
+    "straight_distance_px": "Khoảng cách thẳng (px)",
+    "efficiency_ratio": "Tỷ lệ hiệu quả",
+    "policy": "Chính sách",
+    "episodes": "Số episode",
+    "success_rate": "Tỷ lệ thành công",
+    "collision_rate": "Tỷ lệ va chạm",
+    "timeout_rate": "Tỷ lệ quá thời gian",
+    "avg_steps": "Số bước TB",
+    "avg_reward": "Reward TB",
+    "avg_final_distance_px": "Khoảng cách cuối TB (px)",
+    "best_policy": "Chính sách tốt nhất",
+    "best_success_rate": "Tỷ lệ thành công tốt nhất",
+    "best_avg_steps": "Số bước TB tốt nhất",
+    "best_avg_reward": "Reward TB tốt nhất",
+    "group": "Nhóm",
+    "id": "Mã điểm",
+    "label": "Tên hiển thị",
+    "x": "x",
+    "y": "y",
+    "inside_map": "Trong bản đồ",
+    "occupancy_at_point": "Obstacle tại điểm",
+    "is_free": "Điểm hợp lệ",
+    "nearest_obstacle_px": "Obstacle gần nhất (px)",
 }
 
 
@@ -55,6 +85,12 @@ def percent(value: object) -> str:
     return f"{as_float(value) * 100:.1f}%"
 
 
+def yes_no(value: object) -> str:
+    if isinstance(value, str):
+        return "Có" if value.lower() == "true" else "Không"
+    return "Có" if bool(value) else "Không"
+
+
 def load_policy_rows() -> list[dict[str, str]]:
     rows = []
     rows.extend(read_csv(RESULTS_DIR / "policy_eval_summary.csv"))
@@ -69,7 +105,7 @@ def build_astar_table(astar_rows: list[dict[str, str]]) -> list[dict[str, object
         table.append(
             {
                 "goal": GOAL_LABELS.get(goal_id, goal_id),
-                "path_found": row["path_found"],
+                "path_found": yes_no(row["path_found"]),
                 "path_points": row["path_points"],
                 "path_length_px": row["path_length_px"],
                 "straight_distance_px": row["straight_distance_px"],
@@ -170,9 +206,9 @@ def build_poi_validation_table() -> list[dict[str, object]]:
                     "label": point["label"],
                     "x": x,
                     "y": y,
-                    "inside_map": inside_map,
+                    "inside_map": yes_no(inside_map),
                     "occupancy_at_point": int(blocked),
-                    "is_free": inside_map and not blocked,
+                    "is_free": yes_no(inside_map and not blocked),
                     "nearest_obstacle_px": "" if clearance is None else round(clearance, 2),
                 }
             )
@@ -181,9 +217,9 @@ def build_poi_validation_table() -> list[dict[str, object]]:
 
 def markdown_table(rows: list[dict[str, object]], fieldnames: list[str]) -> str:
     if not rows:
-        return "_Khong co du lieu._"
+        return "_Không có dữ liệu._"
 
-    header = "| " + " | ".join(fieldnames) + " |"
+    header = "| " + " | ".join(REPORT_HEADERS.get(name, name) for name in fieldnames) + " |"
     separator = "| " + " | ".join(["---"] * len(fieldnames)) + " |"
     body = []
     for row in rows:
@@ -246,52 +282,52 @@ def main() -> None:
     ppo_success = sum(as_float(row.get("success_rate")) for row in ppo_current)
     ppo_goal_count = len(ppo_current)
 
-    report = f"""# TLU UAV PPO - Tom tat ket qua cho bao cao
+    report = f"""# TLU UAV PPO - Tóm tắt kết quả cho báo cáo
 
-File nay duoc sinh tu `eval/generate_report_summary.py` dua tren cac file trong `results/`.
+File này được sinh từ `eval/generate_report_summary.py` dựa trên các file trong `results/`.
 
-## Diem chinh
+## Điểm chính
 
-- Ban do hien tai co 5 diem giao: T45, Thu vien, K1, C1, KTX so 4.
-- A* tim duoc duong cho {astar_success}/{len(astar_rows)} muc tieu tren occupancy grid.
-- PPO 100k tren ban do hien tai dat trung binh {ppo_success / ppo_goal_count * 100:.1f}% success neu tinh theo 5 muc tieu.
-- Random baseline dung de chung minh hanh dong ngau nhien de va cham.
-- Greedy baseline dung de chung minh chien luoc tham lam co the thanh cong o mot so diem, nhung de timeout o cac diem can di vong.
+- Bản đồ hiện tại có 5 điểm giao: T45, Thư viện, K1, C1, KTX số 4.
+- A* tìm được đường cho {astar_success}/{len(astar_rows)} mục tiêu trên occupancy grid.
+- PPO 100k trên bản đồ hiện tại đạt trung bình {ppo_success / ppo_goal_count * 100:.1f}% success nếu tính theo 5 mục tiêu.
+- Random baseline dùng để chứng minh hành động ngẫu nhiên dễ va chạm.
+- Greedy baseline dùng để chứng minh chiến lược tham lam có thể thành công ở một số điểm, nhưng dễ timeout ở các điểm cần đi vòng.
 
-## Bang A* Baseline
+## Bảng A* Baseline
 
 {markdown_table(astar_table, ["goal", "path_found", "path_points", "path_length_px", "straight_distance_px", "efficiency_ratio"])}
 
-## Bang So Sanh Policy
+## Bảng so sánh policy
 
 {markdown_table(policy_table, ["policy", "goal", "episodes", "success_rate", "collision_rate", "timeout_rate", "avg_steps", "avg_reward", "avg_final_distance_px"])}
 
-## Policy Tot Nhat Theo Tung Muc Tieu
+## Policy tốt nhất theo từng mục tiêu
 
 {markdown_table(goal_summary, ["goal", "best_policy", "best_success_rate", "best_avg_steps", "best_avg_reward"])}
 
-## Kiem Tra Pickup/Dropoff
+## Kiểm tra pickup/dropoff
 
-Bang nay xac nhan cac diem pickup/dropoff nam trong ban do va khong nam tren obstacle.
+Bảng này xác nhận các điểm pickup/dropoff nằm trong bản đồ và không nằm trên obstacle.
 
 {markdown_table(poi_validation, ["group", "id", "label", "x", "y", "inside_map", "occupancy_at_point", "is_free", "nearest_obstacle_px"])}
 
-## Cach doc ket qua
+## Cách đọc kết quả
 
-- `success_rate`: ty le episode ket thuc bang viec UAV vao vung goal.
-- `collision_rate`: ty le episode va cham voi obstacle/no-fly.
-- `timeout_rate`: ty le episode het `max_steps` nhung chua toi goal.
-- `avg_steps`: so buoc trung binh; cang thap cang tot neu van thanh cong.
-- `avg_reward`: tong reward trung binh; cao hon thuong la policy tot hon.
-- `avg_final_distance_px`: khoang cach con lai toi goal khi episode ket thuc.
-- `efficiency_ratio`: do dai duong A* / khoang cach thang; gan 1 nghia la duong gan toi uu ve hinh hoc.
+- `success_rate`: tỷ lệ episode kết thúc bằng việc UAV vào vùng goal.
+- `collision_rate`: tỷ lệ episode va chạm với obstacle/no-fly.
+- `timeout_rate`: tỷ lệ episode hết `max_steps` nhưng chưa tới goal.
+- `avg_steps`: số bước trung bình; càng thấp càng tốt nếu vẫn thành công.
+- `avg_reward`: tổng reward trung bình; cao hơn thường là policy tốt hơn.
+- `avg_final_distance_px`: khoảng cách còn lại tới goal khi episode kết thúc.
+- `efficiency_ratio`: độ dài đường A* / khoảng cách thẳng; gần 1 nghĩa là đường gần tối ưu về hình học.
 
-## Goi y viet bao cao
+## Gợi ý viết báo cáo
 
-- Dung A* lam baseline quy hoach duong di tren ban do tinh.
-- Dung Random va Greedy lam baseline chinh sach don gian.
-- Dung PPO de trinh bay huong hoc tang cuong: policy hoc tu reward thay vi duoc lap trinh quy tac duong di.
-- Neu PPO that bai o mot goal, trinh bay nhu han che thuc nghiem va ly do can fine-tune/retrain tren ban do cuoi.
+- Dùng A* làm baseline quy hoạch đường đi trên bản đồ tĩnh.
+- Dùng Random và Greedy làm baseline chính sách đơn giản.
+- Dùng PPO để trình bày hướng học tăng cường: policy học từ reward thay vì được lập trình quy tắc đường đi.
+- Nếu PPO thất bại ở một goal, trình bày như hạn chế thực nghiệm và lý do cần fine-tune/retrain trên bản đồ cuối.
 """
     REPORT_PATH.write_text(report, encoding="utf-8")
 

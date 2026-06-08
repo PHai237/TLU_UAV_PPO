@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 import csv
 import json
 import sys
@@ -16,13 +17,12 @@ sys.path.insert(0, str(PROJECT_ROOT))
 from envs.tlu_uav_env import TluUavEnv  # noqa: E402
 
 
-MODEL_PATH = PROJECT_ROOT / "models" / "ppo_tlu_uav_100k_radius30.zip"
+DEFAULT_MODEL_PATH = PROJECT_ROOT / "models" / "ppo_tlu_uav_100k_radius30.zip"
 
 RESULTS_DIR = PROJECT_ROOT / "results"
 TRAJECTORY_DIR = RESULTS_DIR / "trajectories"
 
-SUMMARY_CSV = RESULTS_DIR / "ppo_eval_summary_100k_radius30.csv"
-SUMMARY_JSON = RESULTS_DIR / "ppo_eval_summary_100k_radius30.json"
+DEFAULT_OUTPUT_TAG = "100k_radius30"
 
 TYPE_COLORS = [
     "#b8bdc2",
@@ -181,33 +181,74 @@ def summarize(goal_id: str, results):
     }
 
 
+def parse_args():
+    parser = argparse.ArgumentParser(description="Evaluate a PPO model on TLU UAV goals.")
+    parser.add_argument(
+        "--model-path",
+        type=Path,
+        default=DEFAULT_MODEL_PATH,
+        help="Path to PPO .zip model.",
+    )
+    parser.add_argument(
+        "--output-tag",
+        default=DEFAULT_OUTPUT_TAG,
+        help="Suffix used for summary filenames and policy id.",
+    )
+    parser.add_argument(
+        "--episodes",
+        type=int,
+        default=10,
+        help="Evaluation episodes per goal.",
+    )
+    parser.add_argument(
+        "--max-steps",
+        type=int,
+        default=500,
+        help="Maximum steps per episode.",
+    )
+    parser.add_argument(
+        "--trajectory-prefix",
+        default="ppo",
+        help="Prefix for saved trajectory images.",
+    )
+    return parser.parse_args()
+
+
 def main():
+    args = parse_args()
+    model_path = args.model_path
+    output_tag = args.output_tag
+    policy_id = f"ppo_{output_tag}"
+    summary_csv = RESULTS_DIR / f"ppo_eval_summary_{output_tag}.csv"
+    summary_json = RESULTS_DIR / f"ppo_eval_summary_{output_tag}.json"
+
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)
     TRAJECTORY_DIR.mkdir(parents=True, exist_ok=True)
 
-    if not MODEL_PATH.exists():
-        raise FileNotFoundError(f"Model not found: {MODEL_PATH}")
+    if not model_path.exists():
+        raise FileNotFoundError(f"Model not found: {model_path}")
 
-    model = PPO.load(MODEL_PATH)
+    model = PPO.load(model_path)
 
     all_summaries = []
 
-    print("PPO 100K RADIUS30 EVALUATION")
+    print(f"PPO EVALUATION: {policy_id}")
     print("=" * 70)
 
     for goal_id in GOAL_IDS:
         results = []
 
-        for ep in range(10):
+        for ep in range(args.episodes):
             result = run_episode(
                 model=model,
                 goal_id=goal_id,
                 seed=2000 + ep,
-                max_steps=500,
+                max_steps=args.max_steps,
             )
             results.append(result)
 
         summary = summarize(goal_id, results)
+        summary["policy"] = policy_id
         all_summaries.append(summary)
 
         success_results = [r for r in results if r["success"]]
@@ -216,7 +257,7 @@ def main():
         else:
             sample = results[0]
 
-        output_path = TRAJECTORY_DIR / f"ppo_{goal_id}.png"
+        output_path = TRAJECTORY_DIR / f"{args.trajectory_prefix}_{goal_id}.png"
         render_trajectory(
             env=sample["env"],
             positions=sample["positions"],
@@ -249,18 +290,18 @@ def main():
         "avg_final_distance_px",
     ]
 
-    with SUMMARY_CSV.open("w", newline="", encoding="utf-8") as f:
+    with summary_csv.open("w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerows(all_summaries)
 
-    with SUMMARY_JSON.open("w", encoding="utf-8") as f:
+    with summary_json.open("w", encoding="utf-8") as f:
         json.dump(all_summaries, f, indent=2, ensure_ascii=False)
 
     print("=" * 70)
     print("PPO evaluation saved:")
-    print(f"- {SUMMARY_CSV}")
-    print(f"- {SUMMARY_JSON}")
+    print(f"- {summary_csv}")
+    print(f"- {summary_json}")
 
 
 if __name__ == "__main__":

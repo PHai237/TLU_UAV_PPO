@@ -19,6 +19,10 @@ train_ppo.py
     -> dùng environment để train PPO
     -> lưu model vào models/
 
+fine_tune_ppo.py
+    -> tiếp tục train từ model PPO đã có
+    -> lưu candidate model để đánh giá trước khi thay model chính
+
 evaluate_policies.py
     -> chạy Random và Greedy baseline
     -> lưu bảng kết quả + ảnh trajectory
@@ -68,6 +72,13 @@ Chạy PPO evaluation nếu đã có model:
 
 ```powershell
 python eval\evaluate_ppo.py
+```
+
+Fine-tune PPO nếu muốn thử cải thiện model hiện có:
+
+```powershell
+python train\fine_tune_ppo.py --timesteps 50000 --learning-rate 0.00005 --output-model models\ppo_tlu_uav_candidate
+python eval\evaluate_ppo.py --model-path models\ppo_tlu_uav_candidate.zip --output-tag candidate --trajectory-prefix ppo_candidate
 ```
 
 Xuất ảnh presentation:
@@ -161,6 +172,14 @@ Cần hiểu:
 Khi trình bày:
 
 > PPO học chính sách điều khiển từ reward thay vì được lập trình đường đi cụ thể.
+
+### `train/fine_tune_ppo.py`
+
+Cần hiểu:
+
+- Script này load model PPO đã có và tiếp tục train trên bản đồ hiện tại.
+- Candidate model nên được đánh giá bằng `eval/evaluate_ppo.py` trước khi dùng làm model chính.
+- Nếu fine-tune làm một số mục tiêu tốt hơn nhưng làm mục tiêu khác fail, không nên thay model chính.
 
 ### `eval/evaluate_ppo.py`
 

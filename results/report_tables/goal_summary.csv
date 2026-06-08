@@ -1,6 +1,6 @@
 goal,best_policy,best_success_rate,best_avg_steps,best_avg_reward
-Hoi truong T45,PPO 100k radius30,100.0%,116.0,218.51
-Thu vien,Greedy baseline,100.0%,74.0,118.24
-K1,PPO 100k radius30,100.0%,57.0,152.8
-C1,PPO 100k radius30,100.0%,78.0,208.6
-KTX so 4,PPO 100k radius30,100.0%,57.0,154.41
+Hội trường T45,PPO 100k bán kính 30,100.0%,116.0,218.51
+Thư viện,Greedy baseline,100.0%,74.0,118.24
+K1,PPO 100k bán kính 30,100.0%,57.0,152.8
+C1,PPO 100k bán kính 30,100.0%,78.0,208.6
+KTX số 4,PPO 100k bán kính 30,100.0%,57.0,154.41

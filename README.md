@@ -19,7 +19,8 @@ tlu_uav_ppo/
 ├── envs/
 │   └── tlu_uav_env.py               # Gymnasium environment cho UAV
 ├── train/
-│   └── train_ppo.py                 # Train PPO đa mục tiêu
+│   ├── train_ppo.py                 # Train PPO đa mục tiêu
+│   └── fine_tune_ppo.py             # Fine-tune model PPO đã có
 ├── eval/
 │   ├── astar_map_demo.py            # A* baseline
 │   ├── evaluate_policies.py         # Random/Greedy baseline
@@ -54,6 +55,13 @@ Chạy baseline và PPO evaluation:
 python eval\astar_map_demo.py
 python eval\evaluate_policies.py
 python eval\evaluate_ppo.py
+```
+
+Fine-tune PPO từ model hiện có nếu muốn thử cải thiện thêm:
+
+```powershell
+python train\fine_tune_ppo.py --timesteps 50000 --learning-rate 0.00005 --output-model models\ppo_tlu_uav_candidate
+python eval\evaluate_ppo.py --model-path models\ppo_tlu_uav_candidate.zip --output-tag candidate --trajectory-prefix ppo_candidate
 ```
 
 Xuất ảnh và bảng cho báo cáo:

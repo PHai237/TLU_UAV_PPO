@@ -65,6 +65,7 @@ Tóm tắt:
 - Không có collision trong PPO evaluation.
 - Điểm yếu hiện tại là Thư viện: PPO timeout và còn cách mục tiêu khoảng 507.54 px.
 - Đây là hạn chế hợp lý để đưa vào báo cáo: model cần fine-tune/retrain thêm trên bản đồ cuối.
+- Đã thử fine-tune thêm từ model 100k, nhưng candidate chưa đạt 5/5 và có trường hợp làm giảm kết quả ở mục tiêu khác. Vì vậy model chính vẫn giữ là `ppo_tlu_uav_100k_radius30.zip`.
 
 ## 5. Nhận xét để viết báo cáo
 

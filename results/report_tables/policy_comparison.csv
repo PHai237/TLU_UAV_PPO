@@ -1,16 +1,16 @@
 policy,goal,episodes,success_rate,collision_rate,timeout_rate,avg_steps,avg_reward,avg_final_distance_px
-Random baseline,Hoi truong T45,20,0.0%,100.0%,0.0%,145.55,-138.25,887.41
-Random baseline,Thu vien,20,0.0%,100.0%,0.0%,145.55,-138.81,507.83
+Random baseline,Hội trường T45,20,0.0%,100.0%,0.0%,145.55,-138.25,887.41
+Random baseline,Thư viện,20,0.0%,100.0%,0.0%,145.55,-138.81,507.83
 Random baseline,K1,20,0.0%,100.0%,0.0%,145.55,-139.37,339.0
 Random baseline,C1,20,0.0%,100.0%,0.0%,145.55,-138.39,640.03
-Random baseline,KTX so 4,20,0.0%,100.0%,0.0%,145.55,-138.46,455.93
-Greedy baseline,Hoi truong T45,10,0.0%,0.0%,100.0%,500.0,-869.57,393.44
-Greedy baseline,Thu vien,10,100.0%,0.0%,0.0%,74.0,118.24,24.06
+Random baseline,KTX số 4,20,0.0%,100.0%,0.0%,145.55,-138.46,455.93
+Greedy baseline,Hội trường T45,10,0.0%,0.0%,100.0%,500.0,-869.57,393.44
+Greedy baseline,Thư viện,10,100.0%,0.0%,0.0%,74.0,118.24,24.06
 Greedy baseline,K1,10,0.0%,0.0%,100.0%,500.0,-1028.97,165.47
 Greedy baseline,C1,10,100.0%,0.0%,0.0%,78.0,206.6,27.0
-Greedy baseline,KTX so 4,10,100.0%,0.0%,0.0%,57.0,151.39,26.01
-PPO 100k radius30,Hoi truong T45,10,100.0%,0.0%,0.0%,116.0,218.51,29.06
-PPO 100k radius30,Thu vien,10,0.0%,0.0%,100.0%,500.0,-83.06,507.54
-PPO 100k radius30,K1,10,100.0%,0.0%,0.0%,57.0,152.8,28.1
-PPO 100k radius30,C1,10,100.0%,0.0%,0.0%,78.0,208.6,29.53
-PPO 100k radius30,KTX so 4,10,100.0%,0.0%,0.0%,57.0,154.41,29.41
+Greedy baseline,KTX số 4,10,100.0%,0.0%,0.0%,57.0,151.39,26.01
+PPO 100k bán kính 30,Hội trường T45,10,100.0%,0.0%,0.0%,116.0,218.51,29.06
+PPO 100k bán kính 30,Thư viện,10,0.0%,0.0%,100.0%,500.0,-83.06,507.54
+PPO 100k bán kính 30,K1,10,100.0%,0.0%,0.0%,57.0,152.8,28.1
+PPO 100k bán kính 30,C1,10,100.0%,0.0%,0.0%,78.0,208.6,29.53
+PPO 100k bán kính 30,KTX số 4,10,100.0%,0.0%,0.0%,57.0,154.41,29.41
