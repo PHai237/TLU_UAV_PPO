@@ -20,13 +20,13 @@
     "goal_id": "drop_library",
     "start_x": 1350,
     "start_y": 490,
-    "goal_x": 970,
+    "goal_x": 985,
     "goal_y": 145,
     "path_found": true,
     "path_points": 70,
-    "path_length_px": 623.44,
-    "straight_distance_px": 513.25,
-    "efficiency_ratio": 1.2147,
+    "path_length_px": 617.26,
+    "straight_distance_px": 502.24,
+    "efficiency_ratio": 1.229,
     "status": "pass"
   },
   {
@@ -35,13 +35,13 @@
     "goal_id": "drop_k1",
     "start_x": 1350,
     "start_y": 490,
-    "goal_x": 1120,
+    "goal_x": 1105,
     "goal_y": 268,
     "path_found": true,
-    "path_points": 55,
-    "path_length_px": 473.4,
-    "straight_distance_px": 319.66,
-    "efficiency_ratio": 1.4809,
+    "path_points": 54,
+    "path_length_px": 466.77,
+    "straight_distance_px": 330.62,
+    "efficiency_ratio": 1.4118,
     "status": "pass"
   },
   {
@@ -66,12 +66,12 @@
     "start_x": 1350,
     "start_y": 490,
     "goal_x": 962,
-    "goal_y": 732,
+    "goal_y": 722,
     "path_found": true,
     "path_points": 49,
-    "path_length_px": 487.58,
-    "straight_distance_px": 457.28,
-    "efficiency_ratio": 1.0662,
+    "path_length_px": 483.21,
+    "straight_distance_px": 452.07,
+    "efficiency_ratio": 1.0689,
     "status": "pass"
   }
 ]

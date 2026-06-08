@@ -9,9 +9,9 @@
     "success_rate": 0.0,
     "collision_rate": 1.0,
     "timeout_rate": 0.0,
-    "avg_steps": 102.0,
-    "avg_reward": -115.75,
-    "avg_final_distance_px": 890.3
+    "avg_steps": 145.55,
+    "avg_reward": -138.25,
+    "avg_final_distance_px": 887.41
   },
   {
     "policy": "random",
@@ -23,9 +23,9 @@
     "success_rate": 0.0,
     "collision_rate": 1.0,
     "timeout_rate": 0.0,
-    "avg_steps": 102.0,
-    "avg_reward": -115.73,
-    "avg_final_distance_px": 518.83
+    "avg_steps": 145.55,
+    "avg_reward": -138.81,
+    "avg_final_distance_px": 507.83
   },
   {
     "policy": "random",
@@ -37,9 +37,9 @@
     "success_rate": 0.0,
     "collision_rate": 1.0,
     "timeout_rate": 0.0,
-    "avg_steps": 102.0,
-    "avg_reward": -116.21,
-    "avg_final_distance_px": 327.68
+    "avg_steps": 145.55,
+    "avg_reward": -139.37,
+    "avg_final_distance_px": 339.0
   },
   {
     "policy": "random",
@@ -51,9 +51,9 @@
     "success_rate": 0.0,
     "collision_rate": 1.0,
     "timeout_rate": 0.0,
-    "avg_steps": 102.0,
-    "avg_reward": -116.0,
-    "avg_final_distance_px": 643.47
+    "avg_steps": 145.55,
+    "avg_reward": -138.39,
+    "avg_final_distance_px": 640.03
   },
   {
     "policy": "random",
@@ -65,9 +65,9 @@
     "success_rate": 0.0,
     "collision_rate": 1.0,
     "timeout_rate": 0.0,
-    "avg_steps": 102.0,
-    "avg_reward": -116.38,
-    "avg_final_distance_px": 466.16
+    "avg_steps": 145.55,
+    "avg_reward": -138.46,
+    "avg_final_distance_px": 455.93
   },
   {
     "policy": "greedy",
@@ -94,8 +94,8 @@
     "collision_rate": 0.0,
     "timeout_rate": 0.0,
     "avg_steps": 74.0,
-    "avg_reward": 127.27,
-    "avg_final_distance_px": 29.89
+    "avg_reward": 118.24,
+    "avg_final_distance_px": 24.06
   },
   {
     "policy": "greedy",
@@ -108,8 +108,8 @@
     "collision_rate": 0.0,
     "timeout_rate": 1.0,
     "avg_steps": 500.0,
-    "avg_reward": -1031.16,
-    "avg_final_distance_px": 165.45
+    "avg_reward": -1028.97,
+    "avg_final_distance_px": 165.47
   },
   {
     "policy": "greedy",
@@ -129,14 +129,14 @@
     "policy": "greedy",
     "goal_id": "drop_dorm4",
     "episodes": 5,
-    "success_count": 0,
+    "success_count": 5,
     "collision_count": 0,
-    "timeout_count": 5,
-    "success_rate": 0.0,
+    "timeout_count": 0,
+    "success_rate": 1.0,
     "collision_rate": 0.0,
-    "timeout_rate": 1.0,
-    "avg_steps": 500.0,
-    "avg_reward": -957.93,
-    "avg_final_distance_px": 400.95
+    "timeout_rate": 0.0,
+    "avg_steps": 57.0,
+    "avg_reward": 151.39,
+    "avg_final_distance_px": 26.01
   }
 ]

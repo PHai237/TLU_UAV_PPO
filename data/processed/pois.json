@@ -17,13 +17,13 @@
     {
       "id": "drop_library",
       "label": "Cửa thư viện",
-      "x": 970,
+      "x": 985,
       "y": 145
     },
     {
       "id": "drop_k1",
       "label": "Cửa K1",
-      "x": 1120,
+      "x": 1105,
       "y": 268
     },
     {
@@ -36,7 +36,7 @@
       "id": "drop_dorm4",
       "label": "Cửa KTX số 4",
       "x": 962,
-      "y": 732
+      "y": 722
     }
   ],
   "landmarks": [
@@ -49,7 +49,7 @@
     {
       "id": "lm_a1_door",
       "label": "Cửa A1",
-      "x": 245,
+      "x": 260,
       "y": 278
     },
     {
