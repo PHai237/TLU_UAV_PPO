@@ -73,6 +73,7 @@ python eval\generate_report_summary.py
 | `results/report_tables/astar_routes.csv` | Bảng A* gọn |
 | `results/report_tables/policy_comparison.csv` | Bảng so sánh policy gọn |
 | `results/report_tables/goal_summary.csv` | Policy tốt nhất theo từng goal |
+| `results/report_tables/poi_validation.csv` | Kiểm tra pickup/dropoff có nằm trong map, có bị obstacle chặn hay không |
 
 ## 5. File cũ đã xóa
 
@@ -85,11 +86,11 @@ Các file dưới đây đã được xóa để tránh nhầm với map/kết q
 | `results/ppo_eval_summary_50k_radius30.json` | Kết quả PPO 50k cũ |
 | `models/ppo_tlu_uav_50k_radius30_evalonly.zip` | Model eval-only cũ, dễ gây nhầm với PPO 100k hiện hành |
 
-## 6. File docs đang để riêng
+## 6. File docs hỗ trợ học và viết báo cáo
 
-Các file sau đang là ghi chú riêng, không được dùng làm output chính của pipeline:
+Các file sau không phải output bắt buộc của pipeline, nhưng được dùng để ôn bảo vệ và viết báo cáo nhanh:
 
 | File | Ghi chú |
 | --- | --- |
-| `docs/map_notes.md` | Ghi chú map, hiện có thay đổi riêng |
-| `docs/current_results.md` | Ghi chú kết quả cũ/riêng, không phải report summary hiện hành |
+| `docs/map_notes.md` | Ghi chú thiết kế bản đồ và giả định mô phỏng |
+| `docs/current_results.md` | Tóm tắt kết quả hiện hành dạng narrative; số liệu tự động nằm ở `results/report_summary.md` |

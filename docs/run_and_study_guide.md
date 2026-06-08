@@ -143,6 +143,7 @@ Cần hiểu:
 
 - Random: chọn hành động ngẫu nhiên.
 - Greedy: chọn hành động làm giảm khoảng cách tới goal và tránh va chạm gần.
+- Greedy hiện chạy 10 episode/goal để bảng baseline dễ so với PPO hơn.
 - Lưu success/collision/timeout/steps/reward/final distance.
 
 Khi trình bày:
@@ -194,6 +195,7 @@ Bảng kết quả:
 - `results/report_tables/astar_routes.csv`
 - `results/report_tables/policy_comparison.csv`
 - `results/report_tables/goal_summary.csv`
+- `results/report_tables/poi_validation.csv`
 
 Ảnh trajectory:
 
@@ -210,6 +212,7 @@ Bảng kết quả:
 - `occupancy_grid` khác `risk_map` thế nào?
 - Vì sao cây có thể là risk nhưng không phải lúc nào cũng là obstacle cứng?
 - Vì sao xe dưới đất không nên phạt mạnh nếu UAV bay khoảng 3m?
+- Làm sao kiểm tra một cửa/dropoff có bị nằm trong obstacle hay không?
 
 ### Nhóm câu hỏi về MDP
 
@@ -226,6 +229,7 @@ Bảng kết quả:
 - PPO khác A* thế nào?
 - Vì sao Random gần như luôn fail?
 - Vì sao Greedy có thể bị timeout?
+- Vì sao A* có thể đạt 5/5 còn PPO vẫn fail ở một goal?
 
 ### Nhóm câu hỏi về kết quả
 

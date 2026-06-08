@@ -32,6 +32,8 @@ Map không chỉ là ảnh minh họa. Nó được raster hóa thành nhiều l
 - `pois.json`: tọa độ pickup/dropoff/landmark.
 - `dynamic_obstacles.json`: dữ liệu xe tĩnh hiện tại, dùng làm ngữ cảnh/risk thấp.
 
+Trong mô phỏng hiện tại, `height_map` chưa phải mô hình 3D đầy đủ. Nó là lớp xấp xỉ để phân biệt vật cản cao như tòa nhà/cây lớn với các vùng rủi ro thấp hơn. Vì UAV được giả định bay quanh độ cao khoảng 3m, xe dưới mặt đất không được xem là vật cản cứng như tòa nhà hoặc tán cây.
+
 Ý nghĩa trong báo cáo:
 
 - Tòa nhà và cây cao là chướng ngại quan trọng.
@@ -71,6 +73,12 @@ Một observation gồm:
 - `distance_to_goal_norm`: khoảng cách hiện tại tới goal.
 - `local_risk`: rủi ro lớn nhất quanh vị trí UAV hiện tại.
 - `ray_0` đến `ray_7`: cảm biến ray-casting 8 hướng, cho biết vật cản gần hay xa.
+
+Ghi chú về chuẩn hóa observation:
+
+- `x_norm`, `y_norm` là vị trí tuyệt đối của UAV, được đưa về hệ tọa độ gần `[-1, 1]`.
+- `goal_dx_norm`, `goal_dy_norm` là độ lệch tương đối từ UAV tới goal, chia theo kích thước map. Cách này giữ được hướng và độ xa gần của mục tiêu.
+- `np.clip` được dùng để tránh giá trị vượt biên do làm tròn hoặc do UAV sát mép bản đồ.
 
 Liên quan code:
 

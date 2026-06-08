@@ -199,6 +199,9 @@ class TluUavEnv(gym.Env if gym is not None else object):
         y_norm = (self.position[1] / self.height) * 2.0 - 1.0
 
         goal_delta = self.goal_xy - self.position
+        # Relative goal displacement is bounded by map width/height, so it stays
+        # in roughly [-1, 1]. Position uses a centered coordinate; delta keeps
+        # the sign and magnitude of the target direction.
         goal_dx_norm = goal_delta[0] / self.width
         goal_dy_norm = goal_delta[1] / self.height
 
@@ -342,7 +345,7 @@ class TluUavEnv(gym.Env if gym is not None else object):
         Select action that minimizes Euclidean distance to goal while avoiding
         immediate collision when possible.
         """
-        best_action = 0
+        best_action: int | None = None
         best_score = float("inf")
 
         for action, direction in enumerate(ACTION_DIRECTIONS):
@@ -358,6 +361,11 @@ class TluUavEnv(gym.Env if gym is not None else object):
             if score < best_score:
                 best_score = score
                 best_action = action
+
+        if best_action is None:
+            # No safe one-step action exists. Greedy has no memory/planner, so
+            # fall back to a random action instead of always biasing upward.
+            return int(self.rng.integers(0, len(ACTION_DIRECTIONS)))
 
         return best_action
 

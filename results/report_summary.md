@@ -29,11 +29,11 @@ File nay duoc sinh tu `eval/generate_report_summary.py` dua tren cac file trong 
 | Random baseline | K1 | 20 | 0.0% | 100.0% | 0.0% | 145.55 | -139.37 | 339.0 |
 | Random baseline | C1 | 20 | 0.0% | 100.0% | 0.0% | 145.55 | -138.39 | 640.03 |
 | Random baseline | KTX so 4 | 20 | 0.0% | 100.0% | 0.0% | 145.55 | -138.46 | 455.93 |
-| Greedy baseline | Hoi truong T45 | 5 | 0.0% | 0.0% | 100.0% | 500.0 | -869.57 | 393.44 |
-| Greedy baseline | Thu vien | 5 | 100.0% | 0.0% | 0.0% | 74.0 | 118.24 | 24.06 |
-| Greedy baseline | K1 | 5 | 0.0% | 0.0% | 100.0% | 500.0 | -1028.97 | 165.47 |
-| Greedy baseline | C1 | 5 | 100.0% | 0.0% | 0.0% | 78.0 | 206.6 | 27.0 |
-| Greedy baseline | KTX so 4 | 5 | 100.0% | 0.0% | 0.0% | 57.0 | 151.39 | 26.01 |
+| Greedy baseline | Hoi truong T45 | 10 | 0.0% | 0.0% | 100.0% | 500.0 | -869.57 | 393.44 |
+| Greedy baseline | Thu vien | 10 | 100.0% | 0.0% | 0.0% | 74.0 | 118.24 | 24.06 |
+| Greedy baseline | K1 | 10 | 0.0% | 0.0% | 100.0% | 500.0 | -1028.97 | 165.47 |
+| Greedy baseline | C1 | 10 | 100.0% | 0.0% | 0.0% | 78.0 | 206.6 | 27.0 |
+| Greedy baseline | KTX so 4 | 10 | 100.0% | 0.0% | 0.0% | 57.0 | 151.39 | 26.01 |
 | PPO 100k radius30 | Hoi truong T45 | 10 | 100.0% | 0.0% | 0.0% | 116.0 | 218.51 | 29.06 |
 | PPO 100k radius30 | Thu vien | 10 | 0.0% | 0.0% | 100.0% | 500.0 | -83.06 | 507.54 |
 | PPO 100k radius30 | K1 | 10 | 100.0% | 0.0% | 0.0% | 57.0 | 152.8 | 28.1 |
@@ -49,6 +49,19 @@ File nay duoc sinh tu `eval/generate_report_summary.py` dua tren cac file trong 
 | K1 | PPO 100k radius30 | 100.0% | 57.0 | 152.8 |
 | C1 | PPO 100k radius30 | 100.0% | 78.0 | 208.6 |
 | KTX so 4 | PPO 100k radius30 | 100.0% | 57.0 | 154.41 |
+
+## Kiem Tra Pickup/Dropoff
+
+Bang nay xac nhan cac diem pickup/dropoff nam trong ban do va khong nam tren obstacle.
+
+| group | id | label | x | y | inside_map | occupancy_at_point | is_free | nearest_obstacle_px |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| pickup_points | pickup_back_gate | Cổng sau | 1350 | 490 | True | 0 | True | 66.31 |
+| dropoff_points | drop_t45 | Cửa T45 | 500 | 245 | True | 0 | True | 26.0 |
+| dropoff_points | drop_library | Cửa thư viện | 985 | 145 | True | 0 | True | 26.0 |
+| dropoff_points | drop_k1 | Cửa K1 | 1105 | 268 | True | 0 | True | 25.0 |
+| dropoff_points | drop_c1 | Cửa C1 | 715 | 446 | True | 0 | True | 17.0 |
+| dropoff_points | drop_dorm4 | Cửa KTX số 4 | 962 | 722 | True | 0 | True | 18.0 |
 
 ## Cach doc ket qua
 

@@ -207,7 +207,9 @@ def main():
 
     policies = {
         "random": 20,
-        "greedy": 5,
+        # Greedy is deterministic for a fixed map/start/goal, but using 10
+        # episodes keeps the baseline table aligned with PPO evaluation.
+        "greedy": 10,
     }
 
     all_summaries = []

@@ -1,10 +1,14 @@
 from __future__ import annotations
 
 import csv
+import json
 from pathlib import Path
+
+import numpy as np
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
+PROCESSED_DIR = PROJECT_ROOT / "data" / "processed"
 RESULTS_DIR = PROJECT_ROOT / "results"
 TABLE_DIR = RESULTS_DIR / "report_tables"
 REPORT_PATH = RESULTS_DIR / "report_summary.md"
@@ -123,6 +127,58 @@ def build_goal_summary(policy_rows: list[dict[str, str]]) -> list[dict[str, obje
     return summary
 
 
+def nearest_obstacle_distance(occupancy_grid: np.ndarray, x: int, y: int, radius: int = 80) -> float | None:
+    height, width = occupancy_grid.shape
+    x1 = max(0, x - radius)
+    x2 = min(width - 1, x + radius)
+    y1 = max(0, y - radius)
+    y2 = min(height - 1, y + radius)
+
+    obstacle_points = np.argwhere(occupancy_grid[y1:y2 + 1, x1:x2 + 1] == 1)
+    if obstacle_points.size == 0:
+        return None
+
+    # argwhere returns local [y, x] coordinates.
+    dy = obstacle_points[:, 0] + y1 - y
+    dx = obstacle_points[:, 1] + x1 - x
+    distances = np.sqrt(dx * dx + dy * dy)
+    return float(np.min(distances))
+
+
+def build_poi_validation_table() -> list[dict[str, object]]:
+    with (PROCESSED_DIR / "pois.json").open("r", encoding="utf-8") as f:
+        pois = json.load(f)
+    occupancy_grid = np.load(PROCESSED_DIR / "occupancy_grid.npy")
+    height, width = occupancy_grid.shape
+
+    rows: list[dict[str, object]] = []
+    for group_name in ("pickup_points", "dropoff_points"):
+        for point in pois[group_name]:
+            x = int(round(float(point["x"])))
+            y = int(round(float(point["y"])))
+            inside_map = 0 <= x < width and 0 <= y < height
+            blocked = True
+            clearance = None
+            if inside_map:
+                blocked = bool(occupancy_grid[y, x] == 1)
+                clearance = nearest_obstacle_distance(occupancy_grid, x, y)
+
+            rows.append(
+                {
+                    "group": group_name,
+                    "id": point["id"],
+                    "label": point["label"],
+                    "x": x,
+                    "y": y,
+                    "inside_map": inside_map,
+                    "occupancy_at_point": int(blocked),
+                    "is_free": inside_map and not blocked,
+                    "nearest_obstacle_px": "" if clearance is None else round(clearance, 2),
+                }
+            )
+    return rows
+
+
 def markdown_table(rows: list[dict[str, object]], fieldnames: list[str]) -> str:
     if not rows:
         return "_Khong co du lieu._"
@@ -142,6 +198,7 @@ def main() -> None:
     astar_table = build_astar_table(astar_rows)
     policy_table = build_policy_table(policy_rows)
     goal_summary = build_goal_summary(policy_rows)
+    poi_validation = build_poi_validation_table()
 
     write_csv(
         TABLE_DIR / "astar_routes.csv",
@@ -167,6 +224,21 @@ def main() -> None:
         TABLE_DIR / "goal_summary.csv",
         goal_summary,
         ["goal", "best_policy", "best_success_rate", "best_avg_steps", "best_avg_reward"],
+    )
+    write_csv(
+        TABLE_DIR / "poi_validation.csv",
+        poi_validation,
+        [
+            "group",
+            "id",
+            "label",
+            "x",
+            "y",
+            "inside_map",
+            "occupancy_at_point",
+            "is_free",
+            "nearest_obstacle_px",
+        ],
     )
 
     astar_success = sum(1 for row in astar_rows if row.get("path_found") == "True")
@@ -198,6 +270,12 @@ File nay duoc sinh tu `eval/generate_report_summary.py` dua tren cac file trong 
 
 {markdown_table(goal_summary, ["goal", "best_policy", "best_success_rate", "best_avg_steps", "best_avg_reward"])}
 
+## Kiem Tra Pickup/Dropoff
+
+Bang nay xac nhan cac diem pickup/dropoff nam trong ban do va khong nam tren obstacle.
+
+{markdown_table(poi_validation, ["group", "id", "label", "x", "y", "inside_map", "occupancy_at_point", "is_free", "nearest_obstacle_px"])}
+
 ## Cach doc ket qua
 
 - `success_rate`: ty le episode ket thuc bang viec UAV vao vung goal.
@@ -222,6 +300,7 @@ File nay duoc sinh tu `eval/generate_report_summary.py` dua tren cac file trong 
     print(f"- {TABLE_DIR / 'astar_routes.csv'}")
     print(f"- {TABLE_DIR / 'policy_comparison.csv'}")
     print(f"- {TABLE_DIR / 'goal_summary.csv'}")
+    print(f"- {TABLE_DIR / 'poi_validation.csv'}")
 
 
 if __name__ == "__main__":
