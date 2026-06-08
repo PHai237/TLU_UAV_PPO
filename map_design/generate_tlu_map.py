@@ -195,7 +195,7 @@ layers: list[dict[str, Any]] = [
                 "road_courtyard_bottom",
                 "Courtyard Bottom Road",
                 "road",
-                rect(315, 660, 1305, 705),
+                rect(315, 660, 960, 705),
             ),
             item(
                 "road_courtyard_right",
@@ -223,13 +223,6 @@ layers: list[dict[str, Any]] = [
                 "Back Gate Road",
                 "road",
                 rect(1325, 60, 1370, 500),
-            ),
-            # Road down to dormitory 4.
-            item(
-                "road_to_dorm4",
-                "Road to Dormitory 4",
-                "road",
-                rect(960, 490, 1015, 705),
             ),
             # Road along B4 separator wall.
             item(
@@ -261,9 +254,9 @@ layers: list[dict[str, Any]] = [
             ),
             item(
                 "yard_dorm4_front",
-                "Dormitory 4 Front Yard",
+                "Bãi đất trước KTX số 4",
                 "yard",
-                rect(1070, 560, 1305, 650),
+                rect(1015, 660, 1305, 735),
                 risk_weight=0.12,
                 render_color="#ead9c6",
             ),
@@ -904,7 +897,7 @@ def draw_poi(ax, p: dict[str, Any], kind: str):
 def draw_door_marker(ax, p: dict[str, Any]):
     x = float(p["x"])
     y = float(p["y"])
-    ax.scatter(x, y, s=115, marker="s", color="#6d8fb3", edgecolors="black", linewidths=1.0, zorder=29)
+    ax.scatter(x, y, s=145, marker="X", color=TYPE_COLORS["dropoff"], edgecolors="black", linewidths=1.1, zorder=29)
     ax.text(
         x + 14,
         y - 10,

@@ -93,11 +93,11 @@
               660
             ],
             [
-              1305,
+              960,
               660
             ],
             [
-              1305,
+              960,
               705
             ],
             [
@@ -209,31 +209,6 @@
           "risk_weight": 0.0
         },
         {
-          "id": "road_to_dorm4",
-          "label": "Road to Dormitory 4",
-          "class": "road",
-          "points": [
-            [
-              960,
-              490
-            ],
-            [
-              1015,
-              490
-            ],
-            [
-              1015,
-              705
-            ],
-            [
-              960,
-              705
-            ]
-          ],
-          "height_level": 0,
-          "risk_weight": 0.0
-        },
-        {
           "id": "road_b4_boundary",
           "label": "Road near B4 Wall",
           "class": "road",
@@ -317,24 +292,24 @@
         },
         {
           "id": "yard_dorm4_front",
-          "label": "Dormitory 4 Front Yard",
+          "label": "Bãi đất trước KTX số 4",
           "class": "yard",
           "points": [
             [
-              1070,
-              560
+              1015,
+              660
             ],
             [
               1305,
-              560
+              660
             ],
             [
               1305,
-              650
+              735
             ],
             [
-              1070,
-              650
+              1015,
+              735
             ]
           ],
           "height_level": 0,

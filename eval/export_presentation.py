@@ -66,7 +66,7 @@ def save_map_overview() -> None:
     for p in pois.get("landmarks", []):
         if not str(p["id"]).endswith("_door"):
             continue
-        ax.scatter(p["x"], p["y"], s=90, marker="s", edgecolors="black", color="#6d8fb3")
+        ax.scatter(p["x"], p["y"], s=105, marker="X", edgecolors="black", color="#2878bd")
         ax.text(p["x"] + 12, p["y"] - 10, p["label"], fontsize=8, weight="bold")
 
     ax.set_title("Bản đồ mô phỏng khuôn viên cho bài toán UAV", fontsize=13, weight="bold")
