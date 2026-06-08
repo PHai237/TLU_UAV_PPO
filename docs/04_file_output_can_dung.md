@@ -1,4 +1,4 @@
-# Manifest dữ liệu hiện hành
+# File và output cần dùng
 
 File này ghi rõ các output đang được dùng cho bản đồ và báo cáo hiện tại. Nếu cần dọn repo, ưu tiên giữ các file trong danh sách này.
 
@@ -92,5 +92,9 @@ Các file sau không phải output bắt buộc của pipeline, nhưng được 
 
 | File | Ghi chú |
 | --- | --- |
-| `docs/map_notes.md` | Ghi chú thiết kế bản đồ và giả định mô phỏng |
-| `docs/current_results.md` | Tóm tắt kết quả hiện hành dạng narrative; số liệu tự động nằm ở `results/report_summary.md` |
+| `docs/00_bat_dau_o_day.md` | Trang bắt đầu, mục lục học nhanh |
+| `docs/01_flow_chay_code_va_demo.md` | Flow chạy code, demo và checklist ôn bảo vệ |
+| `docs/02_mdp_va_thuat_toan.md` | Giải thích MDP, reward, A*, PPO |
+| `docs/03_ket_qua_hien_tai.md` | Tóm tắt kết quả hiện hành dạng narrative; số liệu tự động nằm ở `results/report_summary.md` |
+| `docs/04_file_output_can_dung.md` | Danh mục file/output cần giữ và cần dùng |
+| `docs/05_ghi_chu_ban_do.md` | Ghi chú thiết kế bản đồ và giả định mô phỏng |

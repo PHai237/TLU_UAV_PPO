@@ -88,9 +88,14 @@ python render\live_demo.py --goal drop_t45 --policy ppo --hide-sensors
 
 ## Tài liệu học nhanh
 
-- `docs/mdp_methodology.md`: giải thích MDP, state, action, reward, A*, PPO.
-- `docs/run_and_study_guide.md`: flow chạy code và checklist ôn bảo vệ.
-- `docs/output_manifest.md`: file nào là dữ liệu hiện hành, file nào đã xóa vì cũ.
+Đọc theo thứ tự này là dễ nắm dự án nhất:
+
+- `docs/00_bat_dau_o_day.md`: mục lục học nhanh, dự án làm gì, cần hiểu gì.
+- `docs/01_flow_chay_code_va_demo.md`: flow chạy code, lệnh demo, file nào sinh output nào.
+- `docs/02_mdp_va_thuat_toan.md`: MDP, state, action, reward, A*, PPO.
+- `docs/03_ket_qua_hien_tai.md`: kết quả hiện tại và cách giải thích PPO fail ở Thư viện.
+- `docs/04_file_output_can_dung.md`: danh mục file/output dùng cho báo cáo.
+- `docs/05_ghi_chu_ban_do.md`: ghi chú thiết kế bản đồ và giả định mô phỏng.
 
 ## Ghi chú về xe động
 
