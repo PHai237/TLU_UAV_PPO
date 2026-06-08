@@ -2,5 +2,5 @@ route,start_id,goal_id,start_x,start_y,goal_x,goal_y,path_found,path_points,path
 pickup_back_gate_to_drop_t45,pickup_back_gate,drop_t45,1350,490,500,245,True,107,950.59,884.6,1.0746,pass
 pickup_back_gate_to_drop_library,pickup_back_gate,drop_library,1350,490,970,145,True,70,623.44,513.25,1.2147,pass
 pickup_back_gate_to_drop_k1,pickup_back_gate,drop_k1,1350,490,1120,268,True,55,473.4,319.66,1.4809,pass
-pickup_back_gate_to_drop_c1,pickup_back_gate,drop_c1,1350,490,735,442,True,78,634.88,616.87,1.0292,pass
+pickup_back_gate_to_drop_c1,pickup_back_gate,drop_c1,1350,490,715,446,True,80,652.27,636.52,1.0247,pass
 pickup_back_gate_to_drop_dorm4,pickup_back_gate,drop_dorm4,1350,490,962,732,True,49,487.58,457.28,1.0662,pass

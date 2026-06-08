@@ -125,6 +125,36 @@ def item(
     return obj
 
 
+def dorm4_front_tree_items() -> list[dict[str, Any]]:
+    """Small tree crowns around the dormitory 4 front yard, leaving a door corridor."""
+    centers = [
+        (725, 535, 24), (770, 535, 22), (815, 535, 24), (860, 535, 22),
+        (1035, 535, 24), (1085, 535, 22), (1135, 535, 24), (1185, 535, 22), (1235, 535, 24), (1280, 540, 22),
+        (720, 585, 26), (770, 590, 23), (825, 592, 24), (875, 590, 23),
+        (1040, 585, 26), (1095, 590, 24), (1150, 592, 26), (1205, 590, 24), (1260, 590, 26),
+        (710, 640, 24), (760, 648, 25), (812, 650, 24), (865, 648, 25),
+        (1038, 646, 25), (1092, 650, 24), (1148, 650, 25), (1202, 648, 24), (1255, 646, 25),
+        (715, 700, 22), (765, 704, 24), (815, 705, 22), (865, 704, 24),
+        (1035, 704, 24), (1085, 705, 22), (1135, 704, 24), (1185, 702, 22), (1235, 700, 24),
+    ]
+
+    trees = []
+    for index, (x, y, radius) in enumerate(centers, start=1):
+        trees.append(
+            item(
+                f"tree_medium_dorm4_front_{index:02d}",
+                "Cây khu bãi đất trước KTX số 4",
+                "green",
+                oval(x, y, radius, radius, n=20),
+                height_level=2,
+                estimated_height_m=3,
+                subclass="tree_medium",
+                risk_weight=0.50,
+            )
+        )
+    return trees
+
+
 def polygon_mask(points: list[list[float]], width: int, height: int) -> np.ndarray:
     pts = np.asarray(points, dtype=float)
 
@@ -560,46 +590,7 @@ layers: list[dict[str, Any]] = [
                 subclass="tree_medium",
                 risk_weight=0.50,
             ),
-            item(
-                "tree_medium_dorm4_front_west",
-                "Cây khu bãi đất trước KTX số 4 - trái",
-                "green",
-                oval(1015, 620, 62, 70),
-                height_level=2,
-                estimated_height_m=3,
-                subclass="tree_medium",
-                risk_weight=0.55,
-            ),
-            item(
-                "tree_medium_dorm4_front_center",
-                "Cây khu bãi đất trước KTX số 4 - giữa",
-                "green",
-                oval(1135, 655, 90, 54),
-                height_level=2,
-                estimated_height_m=3,
-                subclass="tree_medium",
-                risk_weight=0.55,
-            ),
-            item(
-                "tree_medium_dorm4_front_north",
-                "Cây khu bãi đất trước KTX số 4 - trên",
-                "green",
-                oval(1200, 550, 95, 42),
-                height_level=2,
-                estimated_height_m=3,
-                subclass="tree_medium",
-                risk_weight=0.55,
-            ),
-            item(
-                "tree_medium_dorm4_front_east",
-                "Cây khu bãi đất trước KTX số 4 - phải",
-                "green",
-                oval(1275, 635, 48, 80),
-                height_level=2,
-                estimated_height_m=3,
-                subclass="tree_medium",
-                risk_weight=0.55,
-            ),
+            *dorm4_front_tree_items(),
         ],
     },
     {
@@ -698,7 +689,7 @@ POI_OVERRIDES = {
     "drop_t45": ("Cửa T45", 500, 245),
     "drop_library": ("Cửa thư viện", 970, 145),
     "drop_k1": ("Cửa K1", 1120, 268),
-    "drop_c1": ("Cửa C1", 735, 442),
+    "drop_c1": ("Cửa C1", 715, 446),
     "drop_dorm4": ("Cửa KTX số 4", 962, 732),
     "lm_a1": ("A1", 170, 420),
     "lm_a1_door": ("Cửa A1", 245, 278),
@@ -1046,7 +1037,7 @@ def save_pretty_preview() -> None:
         ("Cổng sau", TYPE_COLORS["pickup"]),
         ("Điểm giao", TYPE_COLORS["dropoff"]),
     ]
-    lx, ly = 25, 25
+    lx, ly = 25, HEIGHT - len(legend_items) * 26 - 35
     for i, (name, color) in enumerate(legend_items):
         y = ly + i * 26
         ax.add_patch(Rectangle((lx, y), 22, 14, facecolor=color, edgecolor="black", linewidth=0.5, zorder=50))
