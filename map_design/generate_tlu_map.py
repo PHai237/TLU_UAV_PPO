@@ -128,14 +128,12 @@ def item(
 def dorm4_front_tree_items() -> list[dict[str, Any]]:
     """Small tree crowns around the dormitory 4 front yard, leaving a door corridor."""
     centers = [
-        (725, 535, 24), (770, 535, 22), (815, 535, 24), (860, 535, 22),
-        (1035, 535, 24), (1085, 535, 22), (1135, 535, 24), (1185, 535, 22), (1235, 535, 24), (1280, 540, 22),
-        (720, 585, 26), (770, 590, 23), (825, 592, 24), (875, 590, 23),
-        (1040, 585, 26), (1095, 590, 24), (1150, 592, 26), (1205, 590, 24), (1260, 590, 26),
-        (710, 640, 24), (760, 648, 25), (812, 650, 24), (865, 648, 25),
-        (1038, 646, 25), (1092, 650, 24), (1148, 650, 25), (1202, 648, 24), (1255, 646, 25),
-        (715, 700, 22), (765, 704, 24), (815, 705, 22), (865, 704, 24),
-        (1035, 704, 24), (1085, 705, 22), (1135, 704, 24), (1185, 702, 22), (1235, 700, 24),
+        (720, 530, 23), (785, 530, 22), (850, 530, 23),
+        (1045, 530, 23), (1110, 530, 22), (1175, 530, 23), (1240, 530, 22), (1290, 540, 22),
+        (710, 590, 23), (710, 650, 23), (725, 705, 21),
+        (850, 595, 22), (850, 655, 22),
+        (1050, 595, 22), (1050, 655, 22),
+        (1260, 590, 23), (1260, 650, 23), (1240, 705, 21),
     ]
 
     trees = []
@@ -722,12 +720,9 @@ dynamic_obstacles = {
         {"id": "car_front_02", "type": "car", "x": 565, "y": 700, "w": 32, "h": 16, "angle": 0, "height_m": 1.6, "height_level": 3, "dynamic": False},
         {"id": "car_front_03", "type": "car", "x": 645, "y": 700, "w": 32, "h": 16, "angle": 0, "height_m": 1.6, "height_level": 3, "dynamic": False},
         {"id": "car_t45_01", "type": "car", "x": 835, "y": 500, "w": 16, "h": 32, "angle": 0, "height_m": 1.6, "height_level": 3, "dynamic": False},
-        {"id": "car_t45_02", "type": "car", "x": 835, "y": 590, "w": 16, "h": 32, "angle": 0, "height_m": 1.6, "height_level": 3, "dynamic": False},
         # Vehicles near back gate / K1 / C1 area.
         {"id": "car_gate_01", "type": "car", "x": 1160, "y": 490, "w": 32, "h": 16, "angle": 0, "height_m": 1.6, "height_level": 3, "dynamic": False},
         {"id": "car_gate_02", "type": "car", "x": 1240, "y": 490, "w": 32, "h": 16, "angle": 0, "height_m": 1.6, "height_level": 3, "dynamic": False},
-        # One larger vehicle treated as level 2 risk, still static.
-        {"id": "van_dorm_01", "type": "van", "x": 1120, "y": 690, "w": 42, "h": 20, "angle": 0, "height_m": 2.5, "height_level": 2, "dynamic": False},
     ]
 }
 
