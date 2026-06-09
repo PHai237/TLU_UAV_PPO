@@ -68,7 +68,7 @@ python eval\generate_report_summary.py
 | --- | --- |
 | `results/presentation/map_overview.png` | Bản đồ tổng quan cho slide/báo cáo |
 | `results/presentation/raster_layers.png` | 4 lớp raster: occupancy/type/height/risk |
-| `results/presentation/baseline_comparison.png` | So sánh baseline |
+| `results/presentation/policy_comparison.png` | So sánh Random, Greedy và PPO |
 | `results/report_summary.md` | Tóm tắt số liệu chính để viết báo cáo |
 | `results/report_tables/astar_routes.csv` | Bảng A* gọn |
 | `results/report_tables/policy_comparison.csv` | Bảng so sánh policy gọn |

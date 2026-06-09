@@ -82,7 +82,7 @@ python render\live_demo.py --goal drop_t45 --policy ppo --hide-sensors
 - `data/processed/previews/campus_render_v3.png`: bản đồ mô phỏng đẹp.
 - `results/presentation/map_overview.png`: bản đồ tổng quan cho báo cáo.
 - `results/presentation/raster_layers.png`: các lớp raster.
-- `results/presentation/baseline_comparison.png`: so sánh baseline.
+- `results/presentation/policy_comparison.png`: so sánh Random, Greedy và PPO.
 - `results/report_summary.md`: tóm tắt số liệu chính.
 - `results/report_tables/*.csv`: bảng A*, policy comparison và best policy.
 

@@ -99,12 +99,15 @@ def save_raster_layers() -> None:
 
 
 def read_policy_summary() -> list[dict[str, str]]:
-    csv_path = RESULTS_DIR / "policy_eval_summary.csv"
-    if not csv_path.exists():
-        return []
-
-    with csv_path.open("r", encoding="utf-8") as f:
-        return list(csv.DictReader(f))
+    rows: list[dict[str, str]] = []
+    for csv_path in (
+        RESULTS_DIR / "policy_eval_summary.csv",
+        RESULTS_DIR / "ppo_eval_summary_100k_radius30.csv",
+    ):
+        if csv_path.exists():
+            with csv_path.open("r", encoding="utf-8") as f:
+                rows.extend(csv.DictReader(f))
+    return rows
 
 
 def save_baseline_comparison() -> None:
@@ -128,20 +131,20 @@ def save_baseline_comparison() -> None:
     x = np.arange(len(labels))
     width = 0.25
 
-    fig, ax = plt.subplots(figsize=(14, 6), dpi=180)
+    fig, ax = plt.subplots(figsize=(18, 7), dpi=180)
     ax.bar(x - width, success, width, label="Thành công", color="#2e7d32")
     ax.bar(x, collision, width, label="Va chạm", color="#c62828")
     ax.bar(x + width, timeout, width, label="Quá thời gian", color="#f9a825")
 
     ax.set_ylim(0, 1.05)
     ax.set_ylabel("Tỷ lệ")
-    ax.set_title("So sánh baseline trên bản đồ mô phỏng", fontsize=13, weight="bold")
+    ax.set_title("So sánh các chính sách trên bản đồ mô phỏng", fontsize=13, weight="bold")
     ax.set_xticks(x)
     ax.set_xticklabels(labels, rotation=35, ha="right")
     ax.grid(axis="y", linestyle="--", alpha=0.35)
     ax.legend(loc="upper right")
     fig.tight_layout()
-    fig.savefig(OUTPUT_DIR / "baseline_comparison.png", bbox_inches="tight")
+    fig.savefig(OUTPUT_DIR / "policy_comparison.png", bbox_inches="tight")
     plt.close(fig)
 
 

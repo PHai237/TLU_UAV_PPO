@@ -217,6 +217,7 @@ Mục đích:
 - Là baseline đơn giản nhưng hợp lý hơn Random.
 - Có thể thành công ở các goal dễ.
 - Có thể timeout ở các goal cần đi vòng hoặc có vùng risk.
+- Nếu toàn bộ hành động một bước đều bị chặn, fallback ngẫu nhiên của Greedy vẫn có thể gây collision. Đây là corner case của baseline, không ảnh hưởng kết quả hiện tại.
 
 ### PPO
 
@@ -239,6 +240,7 @@ Nếu PPO chưa thành công ở toàn bộ goal, có thể trình bày là hạ
 - Map đã được chỉnh nhiều lần nên model cũ có thể chưa tối ưu cho bản đồ cuối.
 - Một số khu vực có cây/risk tạo thử thách cao hơn.
 - Cần fine-tune hoặc train thêm để tăng success rate.
+- PPO evaluation hiện dùng policy deterministic và điểm xuất phát cố định; hướng phát triển có thể đánh giá thêm với nhiều điểm xuất phát hoặc nhiễu khác nhau.
 - Hiện môi trường mới mô phỏng 2D, chưa mô phỏng đầy đủ động lực học UAV 3D.
 
 Đây là điểm hợp lý để viết phần hướng phát triển:

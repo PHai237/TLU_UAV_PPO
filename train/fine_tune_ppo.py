@@ -6,7 +6,6 @@ from pathlib import Path
 
 from stable_baselines3 import PPO
 from stable_baselines3.common.monitor import Monitor
-from stable_baselines3.common.utils import FloatSchedule
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
@@ -66,7 +65,10 @@ def main() -> None:
 
     model = PPO.load(args.input_model, env=env)
     model.learning_rate = args.learning_rate
-    model.lr_schedule = FloatSchedule(args.learning_rate)
+    # PPO stores a learning-rate schedule when loading a saved model. Replace
+    # it explicitly so fine-tuning really uses the requested rate on SB3
+    # versions where assigning model.learning_rate alone is not sufficient.
+    model.lr_schedule = lambda _: args.learning_rate
 
     print("=" * 70)
     print("Fine-tuning PPO on final TLU UAV map")

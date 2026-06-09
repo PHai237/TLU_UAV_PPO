@@ -67,13 +67,25 @@ Tóm tắt:
 - Đây là hạn chế hợp lý để đưa vào báo cáo: model cần fine-tune/retrain thêm trên bản đồ cuối.
 - Đã thử fine-tune thêm từ model 100k, nhưng candidate chưa đạt 5/5 và có trường hợp làm giảm kết quả ở mục tiêu khác. Vì vậy model chính vẫn giữ là `ppo_tlu_uav_100k_radius30.zip`.
 
+Phân tích quỹ đạo Thư viện:
+
+- Agent đi lên theo cạnh phải của bản đồ, sau đó rẽ trái dọc biên trên và dao động quanh vị trí `(498, 4)` cho tới khi timeout.
+- Khoảng cách từ vị trí kẹt tới Cửa thư viện gần `507 px`, khớp với `avg_final_distance_px = 507.54`.
+- Điểm Cửa thư viện và hành lang tiếp cận đều hợp lệ trên occupancy/risk map; vì vậy đây không phải lỗi đặt goal hoặc map bị chặn.
+- Một giả thuyết hợp lý là policy 100k đã hội tụ vào chiến lược đi vòng chưa tốt do cách cân bằng progress reward, risk penalty và dữ liệu trải nghiệm khi train. Tuy nhiên, dữ liệu hiện tại chưa đủ để khẳng định riêng risk penalty là nguyên nhân duy nhất.
+
+Ghi chú về cách đánh giá PPO:
+
+- PPO được chạy với `deterministic=True`, cùng điểm xuất phát và cùng mục tiêu.
+- Vì vậy 10 episode cho một goal có kết quả giống nhau; chúng kiểm tra tính nhất quán của policy, không phải 10 điều kiện xuất phát ngẫu nhiên độc lập.
+
 ## 5. Nhận xét để viết báo cáo
 
 - A* được dùng để xác nhận map có đường đi hợp lệ.
 - Random thể hiện baseline yếu.
 - Greedy thể hiện baseline heuristic có thể fail ở tuyến cần đi vòng.
 - PPO học được chính sách tốt hơn ở 4/5 mục tiêu nhưng chưa hội tụ hoàn toàn.
-- Vì bản đồ đã thay đổi nhiều sau quá trình chỉnh sửa, việc PPO fail ở Thư viện có thể giải thích là do model 100k chưa được fine-tune đủ trên bản đồ cuối.
+- Vì bản đồ đã thay đổi nhiều sau quá trình chỉnh sửa, việc PPO fail ở Thư viện có thể giải thích là policy 100k chưa hội tụ đủ trên bản đồ cuối và còn hạn chế trong cách cân bằng reward.
 
 ## 6. File kết quả nên dùng
 
@@ -84,4 +96,4 @@ Tóm tắt:
 - `results/report_tables/poi_validation.csv`
 - `results/presentation/map_overview.png`
 - `results/presentation/raster_layers.png`
-- `results/presentation/baseline_comparison.png`
+- `results/presentation/policy_comparison.png`

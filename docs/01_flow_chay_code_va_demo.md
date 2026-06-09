@@ -187,6 +187,7 @@ Cần hiểu:
 
 - Load model PPO.
 - Chạy 10 episode cho mỗi goal.
+- Dùng `deterministic=True` và điểm xuất phát cố định, nên các episode cùng goal kiểm tra tính nhất quán của policy thay vì tạo 10 điều kiện ngẫu nhiên độc lập.
 - Lưu summary và trajectory.
 - Nếu goal nào fail, giải thích là hạn chế cần fine-tune/retrain.
 
@@ -203,7 +204,7 @@ Cần hiểu:
 
 - `results/presentation/map_overview.png`
 - `results/presentation/raster_layers.png`
-- `results/presentation/baseline_comparison.png`
+- `results/presentation/policy_comparison.png`
 
 Bảng kết quả:
 

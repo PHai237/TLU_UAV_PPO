@@ -293,6 +293,7 @@ File này được sinh từ `eval/generate_report_summary.py` dựa trên các 
 - PPO 100k trên bản đồ hiện tại đạt trung bình {ppo_success / ppo_goal_count * 100:.1f}% success nếu tính theo 5 mục tiêu.
 - Random baseline dùng để chứng minh hành động ngẫu nhiên dễ va chạm.
 - Greedy baseline dùng để chứng minh chiến lược tham lam có thể thành công ở một số điểm, nhưng dễ timeout ở các điểm cần đi vòng.
+- PPO evaluation dùng `deterministic=True` với điểm xuất phát cố định; các episode cùng goal kiểm tra tính nhất quán của policy.
 
 ## Bảng A* Baseline
 
@@ -328,6 +329,7 @@ Bảng này xác nhận các điểm pickup/dropoff nằm trong bản đồ và 
 - Dùng Random và Greedy làm baseline chính sách đơn giản.
 - Dùng PPO để trình bày hướng học tăng cường: policy học từ reward thay vì được lập trình quy tắc đường đi.
 - Nếu PPO thất bại ở một goal, trình bày như hạn chế thực nghiệm và lý do cần fine-tune/retrain trên bản đồ cuối.
+- Với Thư viện, quỹ đạo kẹt gần biên trên cho thấy policy chưa học được chiến lược tiếp cận goal; không phải do goal nằm trên obstacle.
 """
     REPORT_PATH.write_text(report, encoding="utf-8")
 
