@@ -128,7 +128,7 @@ def astar(occupancy_grid: np.ndarray, start, goal, step: int = 8):
             continue
         visited.add(current)
 
-        if heuristic(current, goal) <= step * 2:
+        if heuristic(current, goal) <= step * 2 and is_segment_free(current, goal):
             came_from[goal] = current
             return reconstruct_path(came_from, goal)
 

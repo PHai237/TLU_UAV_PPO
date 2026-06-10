@@ -16,6 +16,7 @@ Bài toán được mô hình hóa thành MDP và giải bằng PPO. Các phươ
 4. Đọc `docs/03_ket_qua_hien_tai.md` để biết kết quả hiện tại và cách giải thích PPO fail ở Thư viện.
 5. Đọc `docs/04_file_output_can_dung.md` để biết file nào dùng cho báo cáo.
 6. Đọc `docs/05_ghi_chu_ban_do.md` nếu cần giải thích giả định thiết kế map.
+7. Đọc `docs/06_ma_gia_va_doi_chieu_code.md` khi viết phần mã giả hoặc cần đối chiếu thuật toán với code.
 
 ## 3. Flow triển khai code
 

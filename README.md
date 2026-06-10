@@ -96,6 +96,7 @@ python render\live_demo.py --goal drop_t45 --policy ppo --hide-sensors
 - `docs/03_ket_qua_hien_tai.md`: kết quả hiện tại và cách giải thích PPO fail ở Thư viện.
 - `docs/04_file_output_can_dung.md`: danh mục file/output dùng cho báo cáo.
 - `docs/05_ghi_chu_ban_do.md`: ghi chú thiết kế bản đồ và giả định mô phỏng.
+- `docs/06_ma_gia_va_doi_chieu_code.md`: mã giả A*, PPO, MDP, Random, Greedy và đối chiếu với code.
 
 ## Ghi chú về xe động
 

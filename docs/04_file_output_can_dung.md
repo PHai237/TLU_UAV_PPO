@@ -98,3 +98,4 @@ Các file sau không phải output bắt buộc của pipeline, nhưng được 
 | `docs/03_ket_qua_hien_tai.md` | Tóm tắt kết quả hiện hành dạng narrative; số liệu tự động nằm ở `results/report_summary.md` |
 | `docs/04_file_output_can_dung.md` | Danh mục file/output cần giữ và cần dùng |
 | `docs/05_ghi_chu_ban_do.md` | Ghi chú thiết kế bản đồ và giả định mô phỏng |
+| `docs/06_ma_gia_va_doi_chieu_code.md` | Mã giả thuật toán và bảng đối chiếu với code |
